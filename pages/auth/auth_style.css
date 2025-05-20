@@ -1,0 +1,75 @@
+.login-container {
+    width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.login-title {
+    font-family: 'Pacifico', cursive;
+    /* Giống như trong ảnh */
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #0c0c2d;
+}
+
+.login-form label {
+    display: block;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #6d648d;
+}
+
+.required {
+    color: red;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.login-remember {
+    margin: 15px 0 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.login-remember p {
+    margin-left: 8px;
+    color: #6d648d;
+    align-items: center;
+}
+
+.login-btn {
+    width: 100%;
+    background-color: #ffbe00;
+    color: white;
+    border: 1px solid #000;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.login-btn:hover {
+    background-color: #e0ac00;
+}
+
+.forgot-password {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.forgot-password a {
+    color: #72b05f;
+    font-weight: bold;
+    text-decoration: none;
+}

@@ -1,66 +1,3 @@
-/* ===== HEADER ===== */
-.header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.inforweb {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 20px;
-    width: 100%;
-    padding: 10px 20px;
-    background-color: #90c67c;
-    color: #fff;
-}
-
-.infor,
-.inforContent {
-    color: #fff;
-    display: flex;
-    align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.infoIcon {
-    width: 24px;
-    height: 24px;
-    fill: white;
-}
-
-.menuBar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 20px;
-    background-color: #0f0d1d;
-}
-
-.menuList {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    list-style: none;
-    background-color: #0f0d1d;
-}
-
-.menuText {
-    color: #726f84;
-    font-weight: bold;
-    font-family: 'Lobster', cursive;
-    cursor: pointer;
-}
-
-.menuText:hover {
-    color: #84cb6a;
-} */
-
-/* ===== CONTENT ===== */
 .content {
     display: flex;
     flex-direction: column;
@@ -73,7 +10,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
     width: 100%;
     gap: 20px;
     cursor: grab;
@@ -147,6 +83,8 @@
     padding: 50px;
     color: #726f84;
     transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-border-radius: 40px 40px 140px 30px / 20px 70px 30px 80px;
+    border-radius: 40px 40px 140px 30px / 20px 70px 30px 80px;
 }
 
 .helpItem:hover {
@@ -173,36 +111,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 80px 0;
-    background-image: url('../../data/image/dashboard/feedback_parent/bg_fb_parent.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: 0;
-    /* đảm bảo phần tử chính ở dưới nội dung con */
-    color: #fff;
-    overflow: hidden;
-    padding-left: 20px;
-    padding-right: 20px;
 }
-
-.parent-feedback::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
-    /* màu đen mờ phủ ảnh nền */
-    z-index: 1;
-    /* lớp phủ nằm trên nền, dưới nội dung */
-}
-
-/* Tăng z-index nội dung bên trong để nổi lên lớp phủ */
-.parent-feedback>* {
-    position: relative;
-    z-index: 2;
-}
-
 
 .feedbackList {
     display: flex;
@@ -213,11 +122,19 @@
 }
 
 .feedbackItem {
-    background-color: #fff;
+    background-color: #816d53;
     width: 49%;
     padding: 40px;
     padding-bottom: 70px;
     position: relative;
+    color: #fdf8e9;
+    -webkit-border-radius: 40px 40px 140px 30px / 20px 70px 30px 80px;
+    border-radius: 40px 40px 140px 30px / 20px 70px 30px 80px;
+}
+
+.feedbackItem span{
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #fdf8e9;
 }
 
 .feedbackImage {
@@ -228,48 +145,70 @@
 }
 
 .feedbackTitle {
-    color: #000;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 26px;
+    color: #fff;
+    padding-top: 5px;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 26px;
+    color: #fff;
+    padding-top: 5px;
 }
 
 .feedbackText {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     color: #726f84;
 }
 
 /* statistical */
 .statistical {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: space-between;
-    background-color: #fff;
-    width: 100%;
+    width: 80%;
     gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
     padding: 80px 20px;
 }
 
 .statisticalItem {
-    background-color: #000;
+    background-color: #d5c651;
     text-align: center;
-    padding: 20px 40px;
     color: #fff;
     width: 24%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    border-bottom: 4px solid #90c67c;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    border-radius: 25px;
+    position: relative;
 }
 
 .statisticalTitle {
+    position: absolute;
+    top: -10px;
+    left: 60px;
     margin-top: 20px;
     margin-bottom: 10px;
 }
 
+.statisticalContent {
+    margin: 20px;
+    margin-top: 90px;
+}
+
 .statisticalIcon {
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    border-radius: 25px 25px 0 0;
 }
 
 
@@ -285,7 +224,7 @@
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 40px;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     color: #1a1a1a;
 }
 
@@ -317,7 +256,7 @@
     font-weight: bold;
     color: white;
     text-align: left;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .sectionItem:hover .sectionLabel {
@@ -350,7 +289,7 @@
     padding: 20px 40px;
     border: none;
     cursor: pointer;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     font-size: 20px;
     font-weight: bold;
 }
@@ -374,51 +313,7 @@
     cursor: pointer;
 }
 
-.companion{
-    width: 100%;
-    padding: 80px 20px;
-    text-align: center;
-}
-.companionList{
+.login{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    width: 70%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.companionItem {
-    width: 32%;
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    display: block;
-    text-decoration: none;
-}
-
-.imageWrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.companionImage {
-    width: 100%;
-    display: block;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.3);
-    transition: background-color 0.3s ease;
-}
-
-.companionItem:hover .overlay {
-    background-color: rgba(255, 255, 255, 0);
+    gap: 10px;
 }

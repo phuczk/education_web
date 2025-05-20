@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="profile_style.css">
     <link rel="stylesheet" href="../../style/style.css">
+    <script src="profile_script.js"></script>
     <title>Document</title>
 </head>
 
@@ -51,7 +52,7 @@
             <li style="--bg: #f37b1d"><a href="../../pages/courses/courses.html">Các khóa học</a></li>
             <li style="--bg: #de6974"><a href="../../pages/profile/profile.html">Hồ sơ</a></li>
             <li style="--bg: #8c7551"><a href="../../pages/instructors/instructors.html">Giảng viên</a></li>
-            <li style="--bg: #44b3d9"><a href="../../pages/forum/forum.html">Liên hệ</a></li>
+            <li style="--bg: #44b3d9"><a href="../../pages/contact/contact.html">Liên hệ</a></li>
         </ul>
     </div>
     <div class="headerImage">
@@ -62,27 +63,10 @@
 <body class="body">
     <div class="container">
         <div class="content">
-            <div class="login-container">
-                <h2 class="login-title">Login</h2>
-                <form class="login-form">
-                    <label for="username">Username or email <span class="required">*</span></label>
-                    <input type="text" id="username" placeholder="Email or username" required>
 
-                    <label for="password">Password <span class="required">*</span></label>
-                    <input type="password" id="password" placeholder="Password" required>
+            <h2>Khóa học của bạn</h2>
+            <div id="courses-list"></div>
 
-                    <div class="login-remember">
-                        <input type="checkbox" id="remember">
-                        <p for="remember">Remember me</p>
-                    </div>
-
-                    <button type="submit" class="login-btn">Login</button>
-
-                    <p class="forgot-password">
-                        <a href="#">Lost your password?</a>
-                    </p>
-                </form>
-            </div>
 
         </div>
     </div>
@@ -104,7 +88,7 @@
         </div>
     </div>
     <div class="footer">
-        <p>Copyright © 2025. All rights reserved.   Privacy policy</p>
+        <p>Copyright © 2025. All rights reserved. Privacy policy</p>
         <div class="searchFooter">
             <input type="text" placeholder="Search">
             <button>Search</button>

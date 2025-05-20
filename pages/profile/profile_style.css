@@ -1,75 +1,64 @@
-.login-container {
-    max-width: 400px;
-    margin: 50px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', sans-serif;
-}
-
-.login-title {
-    font-family: 'Pacifico', cursive;
-    /* Giống như trong ảnh */
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #0c0c2d;
-}
-
-.login-form label {
-    display: block;
-    font-weight: 600;
-    margin-top: 10px;
-    color: #6d648d;
-}
-
-.required {
-    color: red;
-}
-
-.login-form input[type="text"],
-.login-form input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.login-remember {
-    margin: 15px 0 0 0;
+#courses-list {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
+    width: 83%;
+    list-style: none;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.login-remember p {
-    margin-left: 8px;
-    color: #6d648d;
-    align-items: center;
+.course-card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+    width: 300px;
+    padding: 10px;
 }
 
-.login-btn {
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-card img {
     width: 100%;
-    background-color: #ffbe00;
-    color: white;
-    border: 1px solid #000;
-    padding: 12px;
-    font-size: 16px;
+    height: 200px;
     border-radius: 6px;
-    cursor: pointer;
+    margin-bottom: 0.5rem;
 }
 
-.login-btn:hover {
-    background-color: #e0ac00;
+.cost-low {
+    background-color: #ddcf65; /* xanh nhạt */
 }
 
-.forgot-password {
-    margin-top: 15px;
-    text-align: left;
+.cost-medium {
+    background-color: #f0c044; /* vàng nhạt */
 }
 
-.forgot-password a {
-    color: #72b05f;
+.cost-high {
+    background-color: #ffa750; /* cam nhạt */
+}
+
+.source-title {
     font-weight: bold;
-    text-decoration: none;
+    font-size: 18px;
+    margin-top: 10px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #fff;
+}
+
+.source-cost {
+    color: #28a745;
+    font-weight: bold;
+    margin-top: 5px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.source-description {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
 }

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auth_style.css">
     <link rel="stylesheet" href="../../style/style.css">
-    <link rel="stylesheet" href="sourses_style.css">
-    <script src="sourses_script.js"></script>
+    <script src="auth_script.js"></script>
     <title>Document</title>
 </head>
 
@@ -61,11 +60,27 @@
 </header>
 
 <body class="body">
-    <div class="categories" id="categories"></div>
-    <div class="list">
-        <ul class="source-list" id="sourceList"></ul>
-    </div>
+    <div class="login-container">
+        <h2 class="login-title">Login</h2>
+        <form class="login-form">
+            <label for="username">Username or email <span class="required">*</span></label>
+            <input type="text" id="username" placeholder="Email or username" required>
 
+            <label for="password">Password <span class="required">*</span></label>
+            <input type="password" id="password" placeholder="Password" required>
+
+            <div class="login-remember">
+                <input type="checkbox" id="remember">
+                <p for="remember">Remember me</p>
+            </div>
+
+            <button type="button" onclick="loginUser()" class="login-btn">Login</button>
+
+            <p class="forgot-password">
+                <a href="#">Lost your password?</a>
+            </p>
+        </form>
+    </div>
 </body>
 
 <footer style="width: 100%;">
@@ -91,5 +106,4 @@
         </div>
     </div>
 </footer>
-
 </html>

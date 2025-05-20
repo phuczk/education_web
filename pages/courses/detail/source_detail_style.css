@@ -1,0 +1,28 @@
+.source-detail-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.source-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.source-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.source-cost,
+.source-category,
+.source-description {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}

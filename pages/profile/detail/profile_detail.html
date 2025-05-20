@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="profile_detail_style.css" />
+    <script defer src="profile_detail_script.js"></script>
+    <link rel="stylesheet" href="../../../style/style.css">
+    <title>Chi tiết khóa học</title>
+</head>
+
+<body class="body">
+    <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 1rem;">
+        <button><a href="../../profile/profile.html">Quay lại</a></button>
+        <div class="course-header" id="course-header">
+            <h2 id="course-title"></h2>
+            <p id="course-description"></p>
+        </div>
+    </div>
+
+    <div class="layout">
+        <div class="video-frame">
+            <iframe id="youtube-player" src="" allowfullscreen></iframe>
+        </div>
+        <div class="lessons-list" id="lessons-list">
+        </div>
+    </div>
+    <div style="margin-top: 1rem;">
+        <p><strong>Mô tả: </strong><span id="lesson-description"></span></p>
+        <p style="margin-top: 1rem;"><strong>Bài tập: </strong><span id="lesson-exercise"></span></p>
+    </div>
+</body>
+
+</html>

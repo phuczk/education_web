@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #357ab7;
+}
+
+.course-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ddd;
+    flex: 1;
+}
+
+.course-header h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.course-header p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.video-frame {
+    flex: 2;
+    min-width: 300px;
+}
+
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lessons-list {
+    flex: 1;
+    min-width: 250px;
+    border-left: 2px solid #ccc;
+    padding-left: 1rem;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.lesson-item {
+    cursor: pointer;
+    margin-bottom: 1rem;
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.lesson-item:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+
+.lesson-item.active {
+    background-color: #e0f7fa;
+    border-color: #00acc1;
+}
+
+#lesson-description,
+#lesson-exercise {
+    display: block;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #444;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .lessons-list {
+        border-left: none;
+        border-top: 2px solid #ccc;
+        padding-left: 0;
+        padding-top: 1rem;
+        max-height: none;
+    }
+
+    iframe {
+        height: 300px;
+    }
+}
