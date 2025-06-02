@@ -1,11 +1,9 @@
 const sourceApi = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses';
 const usersApi = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/users';
 
-// Lấy ID khóa học từ URL
 const urlParams = new URLSearchParams(window.location.search);
 const sourceId = urlParams.get('id');
 
-// Lấy thông tin khóa học và hiển thị
 fetch(`${sourceApi}/${sourceId}`)
     .then(res => res.json())
     .then(data => {
@@ -16,7 +14,6 @@ fetch(`${sourceApi}/${sourceId}`)
         document.getElementById('sourceDetail').innerHTML = "<p>Không thể tải dữ liệu chi tiết.</p>";
     });
 
-// Hiển thị thông tin khóa học + nút mua
 function renderSourceDetail(source) {
     const container = document.getElementById('sourceDetail');
     container.innerHTML = `
@@ -25,11 +22,10 @@ function renderSourceDetail(source) {
         <p class="source-cost">💰 Giá: $${source.cost}</p>
         <p class="source-category">📚 Danh mục: ${source.category}</p>
         <p class="source-description">📝 Mô tả: ${source.description}</p>
-        <button onclick="buyCourse('${source.id}')" class="buy-button">🛒 Mua khóa học</button>
+        <button onclick="buyCourse('${source.id}')" class="buy-button">Mua khóa học</button>
     `;
 }
 
-// Hàm mua khóa học
 function buyCourse(courseId) {
     const userId = localStorage.getItem('userId');
     if (!userId) {

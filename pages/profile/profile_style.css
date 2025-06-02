@@ -7,6 +7,7 @@
     list-style: none;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 40px;
 }
 
 .course-card {
@@ -45,15 +46,14 @@
 .source-title {
     font-weight: bold;
     font-size: 18px;
-    margin-top: 10px;
+    margin-bottom: 10px;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     color: #fff;
 }
 
-.source-cost {
-    color: #28a745;
-    font-weight: bold;
-    margin-top: 5px;
+.source-category{
+    font-size: 14px;
+    color: #555;
     font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
@@ -61,4 +61,5 @@
     margin-top: 10px;
     font-size: 14px;
     color: #555;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }

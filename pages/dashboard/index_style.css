@@ -4,13 +4,85 @@
     align-items: center;
 }
 
+.relative { position: relative; }
+.absolute { position: absolute; }
+.hidden { display: none; }
+.block { display: block; }
+.z-10 { z-index: 10; }
+
+/* Phần login/register khi chưa đăng nhập */
+.login a {
+    display: inline-block;
+    margin-left: 12px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.login a:hover {
+    background-color: #388e3c;
+}
+
+/* Dropdown người dùng sau khi đăng nhập */
+.login .relative {
+    position: relative;
+}
+
+#userDropdownButton {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#userDropdownButton:hover {
+    background-color: #388e3c;
+}
+
+#userDropdownMenu {
+    position: absolute;
+    right: 0;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    width: 140px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+#userDropdownMenu button {
+    width: 100%;
+    padding: 10px 16px;
+    background: none;
+    border: none;
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#userDropdownMenu button:hover {
+    background-color: #f1f1f1;
+}
+
 /* Scrollable sections (drag-enabled) */
 .luggage-for-baby,
 .help-baby {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
     gap: 20px;
     cursor: grab;
     margin-bottom: 20px;
@@ -111,6 +183,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 80px 0;
+    width: 90%;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .feedbackList {
@@ -156,6 +231,7 @@
     line-height: 26px;
     color: #fff;
     padding-top: 5px;
+    margin-bottom: 15px;
 }
 
 .feedbackText {
@@ -189,11 +265,20 @@
     position: relative;
 }
 
+.statisticalIC{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left:5px;
+    top: 10px;
+    z-index: 1;
+}
+
 .statisticalTitle {
     position: absolute;
     top: -10px;
     left: 60px;
-    margin-top: 20px;
+    margin-top: 15px;
     margin-bottom: 10px;
 }
 
@@ -237,7 +322,15 @@
 
 .sectionItem {
     position: relative;
-    width: 24%;
+    width: 22%;
+    background-color: #fdf8e9;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer
+}
+
+.sectionItem:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
 .sectionItem img {
@@ -264,56 +357,55 @@
 }
 
 .try {
-    width: 100%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 80px 50px;
-    background-color: #000;
+    padding: 60px 30px;
+    background-color: #48b3ce;
     color: #fff;
     margin: 40px 0;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-.tryTitle{
-    font-size: 30px;
+.tryTitle {
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 10px;
-    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+    font-family: 'Comic Sans MS', 'Segoe UI', sans-serif;
     color: #fff;
-}
-
-.btnTry{
-    background-color: #90c67c;
-    color: #fff;
-    padding: 20px 40px;
-    border: none;
-    cursor: pointer;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.btnTry:hover{
-    background-color: #fff;
-    color: #90c67c;
-}
-
-.btnTry:hover a{
-    color: #90c67c;
-}
-
-.btnTry a{
-    color: #fff;
+    text-align: center;
 }
 
 .btnTry {
-    padding: 10px 20px;
-    background-color: #90c67c;
-    cursor: pointer;
+    display: inline-block;
+    background-color: #efc043;
+    color: #fff;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.login{
-    display: flex;
-    gap: 10px;
+.btnTry:hover {
+    background-color: #eb7400;
+    color: white;
+    transform: scale(1.05);
+}
+
+.title{
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
 }

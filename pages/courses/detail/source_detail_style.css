@@ -1,28 +1,65 @@
+/* Chi tiết khóa học - Phong cách sáng */
 .source-detail-container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background-color: #f9f9f9;
-    text-align: center;
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border-radius: 30px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .source-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 30px;
+    text-align: center;
 }
 
 .source-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    border: 4px solid #90c67c;
 }
 
 .source-cost,
 .source-category,
 .source-description {
-    font-size: 1.1rem;
-    margin: 10px 0;
+    font-size: 18px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border-left: 5px solid #90c67c;
+}
+
+.buy-button {
+    background-color: #90c67c;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin-top: 20px;
+}
+
+.buy-button:hover {
+    background-color: #fff;
+    color: #90c67c;
+    border: 2px solid #90c67c;
 }

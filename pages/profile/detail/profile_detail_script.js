@@ -4,7 +4,6 @@ const courseId = params.get('id');
 fetch(`https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses/${courseId}`)
     .then(res => res.json())
     .then(course => {
-        // Gán thông tin tiêu đề khóa học
         document.getElementById('course-title').textContent = course.title;
         document.getElementById('course-description').textContent = course.description;
 
@@ -14,29 +13,36 @@ fetch(`https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses/${c
         const lessonEx = document.getElementById('lesson-exercise');
 
         if (!course.lessons.length) {
-            lessonsList.innerHTML = '<p>Không có bài học nào.</p>';
+            lessonsList.textContent = 'Không có bài học nào.';
             return;
         }
 
-        // Phát video và nội dung đầu tiên mặc định
-        player.src = convertToEmbedUrl(course.lessons[0].youtube);
-        lessonDesc.textContent = course.lessons[0].description;
-        lessonEx.textContent = course.lessons[0].exercise;
+        // Load video + info đầu tiên
+        setLesson(course.lessons[0]);
 
-        lessonsList.innerHTML = '';
         course.lessons.forEach((lesson, index) => {
             const lessonDiv = document.createElement('div');
             lessonDiv.className = 'lesson-item';
-            lessonDiv.innerHTML = `<h4>Bài ${index + 1}: ${lesson.title}</h4>`;
 
-            lessonDiv.addEventListener('click', () => {
-                player.src = convertToEmbedUrl(lesson.youtube);
-                lessonDesc.textContent = lesson.description;
-                lessonEx.textContent = lesson.exercise;
-            });
+            const image = document.createElement('img');
+            image.className = "lesson-image";
+            image.src = "../../../data/image/accordion1.png";
+            lessonDiv.appendChild(image);
+
+            const title = document.createElement('h4');
+            title.textContent = `Bài ${index + 1}: ${lesson.title}`;
+            lessonDiv.appendChild(title);
+
+            lessonDiv.addEventListener('click', () => setLesson(lesson));
 
             lessonsList.appendChild(lessonDiv);
         });
+
+        function setLesson(lesson) {
+            player.src = convertToEmbedUrl(lesson.youtube);
+            lessonDesc.textContent = lesson.description;
+            lessonEx.textContent = lesson.exercise;
+        }
 
         function convertToEmbedUrl(url) {
             const videoId = url.includes('watch?v=') ? url.split('watch?v=')[1].split('&')[0] : url.split('/').pop();

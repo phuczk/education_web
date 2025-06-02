@@ -61,8 +61,26 @@
 </header>
 
 <body class="body">
+    <h1>📚 Diễn đàn Green</h1>
 
+    <div class="forum-container">
+        <div id="thread-list" class="thread-list"></div>
+
+        <div class="form-wrapper">
+            <h2>Tạo bài viết mới</h2>
+            <form id="create-thread-form">
+                <input type="text" id="title" placeholder="Tiêu đề" required />
+                <textarea id="description" placeholder="Mô tả" required></textarea>
+                <input type="text" id="category" placeholder="Danh mục" required />
+                <input type="text" id="createdBy" placeholder="Người tạo" required />
+                <button type="submit">Tạo bài viết</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="forum_script.js"></script>
 </body>
+
 
 <footer style="width: 100%;">
     <div class="bot1">
@@ -80,11 +98,12 @@
         </div>
     </div>
     <div class="footer">
-        <p>Copyright © 2025. All rights reserved.   Privacy policy</p>
+        <p>Copyright © 2025. All rights reserved. Privacy policy</p>
         <div class="searchFooter">
             <input type="text" placeholder="Search">
             <button>Search</button>
         </div>
     </div>
 </footer>
+
 </html>

@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #fff7df;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.left{
+    flex: 2;
+}
+
+.right {
+    flex: 1;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #a5911f;
+    margin-bottom: 10px;
+}
+
+.map-container {
+    border: 5px solid #a5911f;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 350px;
+    border: none;
+}
+
+.contact-details {
+    line-height: 1.6;
+}
+
+.contact-form {
+    margin-top: 40px;
+}
+
+.contact-form h2 {
+    color: #6a5e30;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.offer-box {
+    background-color: #ef6c00;
+    color: white;
+    -webkit-border-radius: 40px 40px 140px 30px / 20px 70px 30px 80px;
+    border-radius: 40px 40px 140px 30px / 20px 70px 30px 80px;
+    padding: 20px;
+    position: relative;
+}
+
+.offer-box h3 {
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.offer-box img {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.offer-text {
+    font-size: 0.95rem;
+}
+
+.details-btn {
+    background-color: #fff7df;
+    color: #ef6c00;
+    border: 5px solid #ef6c00;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.details-btn:hover {
+    background-color: #ef6c00;
+    color: #fcf4db;
+    border: 5px solid #fcf4db;
+}

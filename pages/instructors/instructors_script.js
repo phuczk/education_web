@@ -16,11 +16,14 @@ function renderSubjects(subjects) {
     const container = document.getElementById('subjects');
     container.innerHTML = '';
 
-    // Nút "All"
+    // Tạo nút "All"
     const allBtn = document.createElement('button');
     allBtn.textContent = 'All';
-    allBtn.className = 'subject-btn';
-    allBtn.onclick = () => renderStaffs(allStaffs);
+    allBtn.className = 'subject-btn selected'; // Mặc định chọn "All"
+    allBtn.onclick = () => {
+        renderStaffs(allStaffs);
+        updateSelectedButton(allBtn);
+    };
     container.appendChild(allBtn);
 
     // Nút theo từng subject
@@ -31,12 +34,19 @@ function renderSubjects(subjects) {
         btn.onclick = () => {
             const filtered = allStaffs.filter(s => s.subject === subject);
             renderStaffs(filtered);
+            updateSelectedButton(btn);
         };
         container.appendChild(btn);
     });
 }
 
-// Hiển thị danh sách staffs
+function updateSelectedButton(selectedBtn) {
+    document.querySelectorAll('.subject-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    selectedBtn.classList.add('selected');
+}
+
 function renderStaffs(staffs) {
     const list = document.getElementById('staffList');
     list.innerHTML = '';
@@ -44,6 +54,9 @@ function renderStaffs(staffs) {
     staffs.forEach(staff => {
         const card = document.createElement('div');
         card.className = 'staff-card';
+        card.onclick = () => {
+            window.location.href = `./detail/instructors_detail.html?id=${staff.id}`;
+        };
         card.innerHTML = `
             <img src="${staff.avatar}" alt="${staff.name}" class="staff-avatar">
             <div class="staff-info">

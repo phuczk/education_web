@@ -1,0 +1,159 @@
+body {
+    font-family: 'Comic Sans MS', 'Segoe UI', cursive, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    color: #ff6f61;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+.forum-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.thread-list {
+    flex: 2;
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+/* Tô màu ngẫu nhiên cho thread border */
+.thread {
+    background-color: #d5c651;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    border-left: 10px solid #ffcc70;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.thread:nth-child(3n+1) {
+    border-left-color: #ff8a65;
+}
+.thread:nth-child(3n+2) {
+    border-left-color: #4dd0e1;
+}
+.thread:nth-child(3n+3) {
+    border-left-color: #81c784;
+}
+
+.thread:hover {
+    transform: scale(1.01);
+}
+
+.thread h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.thread h2 a {
+    color: #fff7df;
+    text-decoration: none;
+}
+
+.thread h2 a:hover {
+    text-decoration: underline;
+}
+
+.thread-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+}
+
+.thread-stats {
+    display: flex;
+    gap: 20px;
+    font-size: 0.95rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.thread-stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form-wrapper {
+    flex: 1;
+    position: sticky;
+    top: 20px;
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    border: 2px solid #90caf9;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus {
+    border-color: #42a5f5;
+    outline: none;
+}
+
+form button {
+    background: linear-gradient(to right, #ffb74d, #f57c00);
+    color: white;
+    padding: 14px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+form button:hover {
+    background-color: #ef6c00;
+    transform: scale(1.03);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .forum-container {
+        flex-direction: column;
+    }
+
+    .thread-list {
+        max-height: none;
+        padding-right: 0;
+    }
+
+    .form-wrapper {
+        position: static;
+        margin-top: 2rem;
+    }
+}

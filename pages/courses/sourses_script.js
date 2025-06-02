@@ -1,6 +1,7 @@
 const apiUrl = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses';
 let allSources = [];
 
+// Lấy dữ liệu từ API
 fetch(apiUrl)
     .then(res => res.json())
     .then(data => {
@@ -10,20 +11,22 @@ fetch(apiUrl)
         renderSources(data); // Hiển thị tất cả lúc đầu
     });
 
+// Render các nút category
 function renderCategories(categories) {
     const container = document.getElementById('categories');
     container.innerHTML = ''; // Xóa cũ nếu có
 
-    // Thêm nút "All"
+    // Nút "All"
     const allBtn = document.createElement('button');
-    allBtn.className = 'category-btn';
+    allBtn.className = 'category-btn selected'; // Mặc định chọn "All"
     allBtn.textContent = 'All';
     allBtn.addEventListener('click', () => {
         renderSources(allSources);
+        updateSelectedCategory(allBtn);
     });
     container.appendChild(allBtn);
 
-    // Thêm các nút theo từng category
+    // Các nút category theo từng loại
     categories.forEach(cat => {
         const btn = document.createElement('button');
         btn.className = 'category-btn';
@@ -31,14 +34,25 @@ function renderCategories(categories) {
         btn.addEventListener('click', () => {
             const filtered = allSources.filter(source => source.category === cat);
             renderSources(filtered);
+            updateSelectedCategory(btn);
         });
         container.appendChild(btn);
     });
 }
 
+// Cập nhật class selected cho category được chọn
+function updateSelectedCategory(selectedBtn) {
+    document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.classList.remove('selected');
+    });
+    selectedBtn.classList.add('selected');
+}
+
+// Render danh sách sources
 function renderSources(sources) {
     const list = document.getElementById('sourceList');
     list.innerHTML = '';
+
     sources.forEach(source => {
         const li = document.createElement('li');
 
@@ -60,7 +74,7 @@ function renderSources(sources) {
             <div class="source-description">${source.description}</div>
         `;
 
-        // 👇 Thêm xử lý sự kiện click
+        // Chuyển hướng đến trang chi tiết khi click
         li.addEventListener('click', () => {
             window.location.href = `detail/sources_detail.html?id=${source.id}`;
         });

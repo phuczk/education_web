@@ -4,7 +4,7 @@ const sourcesApi = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclas
 
 if (!userId) {
     alert('Bạn chưa đăng nhập!');
-    window.location.href = '../../auth/login.html';
+    window.location.href = '../../pages/auth/login.html';
 }
 fetch(`${usersApi}/${userId}`)
     .then(res => res.json())
@@ -16,7 +16,6 @@ fetch(`${usersApi}/${userId}`)
             return;
         }
 
-        // Lấy tất cả khóa học
         fetch(sourcesApi)
             .then(res => res.json())
             .then(allSources => {
@@ -47,12 +46,10 @@ function renderCourses(courses) {
         div.innerHTML = `
                 <h3 class="source-title">${course.title}</h3>
                 <img src="${course.thumbnailSources}" alt="${course.title}">
-                <p class="source-category"><strong>Danh mục:</strong> ${course.category}</p>
-                <p class="source-cost"><strong>Học phí:</strong> $${course.cost}</p>
+                <p class="source-category"><strong>Môn học:</strong> ${course.category}</p>
                 <p class="source-description">${course.description}</p>
             `;
 
-        // 👉 Gán sự kiện click để chuyển trang với id khóa học
         div.addEventListener('click', () => {
             window.location.href = `detail/profile_detail.html?id=${course.id}`;
         });
