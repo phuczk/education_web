@@ -17,7 +17,6 @@ fetch(`https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses/${c
             return;
         }
 
-        // Load video + info đầu tiên
         setLesson(course.lessons[0]);
 
         course.lessons.forEach((lesson, index) => {

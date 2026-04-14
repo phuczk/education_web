@@ -1,5 +1,5 @@
 
-const API = 'https://682dcaf54fae1889475791ed.mockapi.io/api/v2/greenclass/threads';
+const API = 'https://682dcaf54fae1889475791ed.mockapi.io/api/v2/speaklearn/threads';
 const list = document.getElementById('thread-list');
 
 // Load danh sách bài viết

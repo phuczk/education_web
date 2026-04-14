@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Speak Learn</title>
+  <link rel="stylesheet" href="speak_style.css">
+</head>
+
+<body>
+  <div id="targetDisplay">
+    <h2>Từ cần nói: <span id="targetWord">Xin chào</span></h2>
+    <button id="recordBtn">Bấm để nói</button>
+  </div>
+
+  <div id="compareContainer">
+    <div id="spokenDisplay">Bạn nói: <span id="output">...</span></div>
+  <button id="nextBtn" class="btnTry">Từ tiếp theo</button>
+
+  </div>
+
+
+  <div id="result">Kết quả:</div>
+
+  <div class="circle">
+    <div class="percentage" id="accuracy">0%</div>
+    <svg>
+      <circle cx="60" cy="60" r="50"></circle>
+      <circle cx="60" cy="60" r="50" id="progressCircle"></circle>
+    </svg>
+  </div>
+
+  <script src="speak_script.js"></script>
+</body>
+
+</html>

@@ -2,30 +2,41 @@ const userId = localStorage.getItem('userId');
 const usersApi = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/users';
 const sourcesApi = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses';
 
-if (!userId) {
-    alert('Bạn chưa đăng nhập!');
-    window.location.href = '../../pages/auth/login.html';
-}
-fetch(`${usersApi}/${userId}`)
-    .then(res => res.json())
-    .then(user => {
-        const sourceIds = user.sourcesId || [];
+document.addEventListener('DOMContentLoaded', () => {
+    const freeSourceBtn = document.getElementById('freeSourceBtn');
+    if (freeSourceBtn) {
+        freeSourceBtn.addEventListener('click', () => {
+            window.location.href = 'free_source/free_source.html';
+        });
+    }
 
-        if (sourceIds.length === 0) {
-            document.getElementById('courses-list').innerHTML = '<p>Bạn chưa đăng ký khóa học nào.</p>';
-            return;
-        }
+    if (!userId) {
+        alert('Bạn chưa đăng nhập!');
+        window.location.href = '../../pages/auth/login.html';
+        return;
+    }
 
-        fetch(sourcesApi)
-            .then(res => res.json())
-            .then(allSources => {
-                const myCourses = allSources.filter(source => sourceIds.includes(source.id));
-                renderCourses(myCourses);
-            });
-    })
-    .catch(err => {
-        console.error('Lỗi khi tải thông tin người dùng:', err);
-    });
+    fetch(`${usersApi}/${userId}`)
+        .then(res => res.json())
+        .then(user => {
+            const sourceIds = user.sourcesId || [];
+
+            if (sourceIds.length === 0) {
+                document.getElementById('courses-list').innerHTML = '<p>Bạn chưa đăng ký khóa học nào.</p>';
+                return;
+            }
+
+            fetch(sourcesApi)
+                .then(res => res.json())
+                .then(allSources => {
+                    const myCourses = allSources.filter(source => sourceIds.includes(source.id));
+                    renderCourses(myCourses);
+                });
+        })
+        .catch(err => {
+            console.error('Lỗi khi tải thông tin người dùng:', err);
+        });
+});
 
 function renderCourses(courses) {
     const container = document.getElementById('courses-list');

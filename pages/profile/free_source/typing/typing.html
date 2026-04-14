@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="typing_style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg1">
+        <div class="wrapper">
+        <input type="text" class="input-field" id="input-new">
+        <!-- <p id="point">0</p> -->
+        <div class="contentbox">
+            <div class="typing-text">
+                <p id="typing-text_p"></p>
+            </div>
+            <div class="content">
+                <ul class="result-details">
+                    <li class="time">
+                        <p>Time left: </p>
+                        <span><b> 30</b></span>
+                    </li>
+                    <li class="mistake">
+                        <p >mistake: </p>
+                        <span id="mistake_p"><b>0</b></span>
+                    </li>
+                    <li class="streak">
+                        <p>streak: </p>
+                        <span><b> 0</b></span>
+                    </li>
+                    <li class="wpm">
+                        <p>wpm: </p>
+                        <span><b> 0</b></span>
+                    </li>
+                    <li class="cpm">
+                        <p>cpm: </p>
+                        <span><b> 0</b></span>
+                    </li>
+                </ul>
+                <button class="btnAgain" onclick="ranDomContent()">Try Again</button>
+            </div>
+        </div>
+    </div>
+    <section class="calc-buttons">
+        <div class="calc-button-row">
+            <button class="calc-button_tab">
+                TAB
+            </button>
+            <button class="calc-button"  data-key="q">
+                Q
+            </button>
+            <button class="calc-button" data-key="w">
+                W
+            </button>
+            <button class="calc-button"  data-key="e">
+                E
+            </button>
+            <button class="calc-button"  data-key="r">
+                R
+            </button>
+            <button class="calc-button"  data-key="t">
+                T
+            </button>
+            <button class="calc-button"  data-key="y">
+                Y
+            </button>
+            <button class="calc-button"  data-key="u">
+                U
+            </button>
+            <button class="calc-button"  data-key="i">
+                I
+            </button>
+            <button class="calc-button"  data-key="o">
+                O
+            </button>
+            <button class="calc-button"  data-key="p">
+                P
+            </button>
+            <button class="calc-button">
+                {
+            </button>
+            <button class="calc-button">
+                }
+            </button>
+            <button class="calc-button_tab">
+                \
+            </button>
+            
+        </div>
+        
+        <div class="calc-button-row">
+            <button class="calc-button_caspLock">
+                caps lock
+            </button>
+            <button class="calc-button"  data-key="a">
+                A
+            </button>
+            <button class="calc-button"  data-key="s">
+                S
+            </button>
+            <button class="calc-button"  data-key="d">
+                D
+            </button>
+            <button class="calc-button"  data-key="f">
+                F
+            </button>
+            <button class="calc-button"  data-key="g">
+                G
+            </button>
+            <button class="calc-button" data-key="h">
+                H
+            </button>
+            <button class="calc-button" data-key="j">
+                J
+            </button>
+            <button class="calc-button" data-key="k">
+                K
+            </button>
+            <button class="calc-button" data-key="l">
+                L
+            </button>
+            <button class="calc-button" data-key=";">
+                ;
+            </button>
+            <button class="calc-button">
+                '
+            </button>
+            <button class="calc-button_enter">
+                enter
+            </button>
+        </div>
+
+        <div class="calc-button-row">
+            <button class="calc-button_shift">
+                shift
+            </button>
+            <button class="calc-button"  data-key="z">
+                Z
+            </button>
+            <button class="calc-button"  data-key="x">
+                X
+            </button>
+            <button class="calc-button"  data-key="c">
+                C
+            </button>
+            <button class="calc-button" data-key="v">
+                V
+            </button>
+            <button class="calc-button" data-key="b">
+                B
+            </button>
+            <button class="calc-button" data-key="n">
+                N
+            </button>
+            <button class="calc-button" data-key="m">
+                M
+            </button>
+            <button class="calc-button" data-key=",">
+                ,
+            </button>
+            <button class="calc-button">
+                .
+            </button>
+            <button class="calc-button">
+                /
+            </button>
+            <button class="calc-button_shiftz">
+                shift
+            </button>
+        </div>
+
+        <div class="calc-button-row">
+            <button class="calc-button">
+                ctrl
+            </button>
+            <button class="calc-button">
+                fn
+            </button>
+            <button class="calc-button">
+                wi
+            </button>
+            <button class="calc-button">
+                alt
+            </button>
+            <button class="calc-button_space"  data-key="space">
+                space
+            </button>
+            <button class="calc-button">
+                alt
+            </button>
+            <button class="calc-button">
+                ctrl
+            </button>
+            
+            <button class="calc-button">
+                <
+            </button>
+            <button class="calc-button_up">
+                ^
+            </button>
+            <button class="calc-button_down">
+                |
+            </button>
+            <button class="calc-button">
+                >
+            </button>
+        </div>
+    </section>
+    </div>
+    
+    <script src="typing_script.js"></script>
+</body>
+</html>
