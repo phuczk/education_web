@@ -71,7 +71,7 @@
 }
 
 .phone{
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-size: 24px;
     color: white;
     font-weight: bold;
@@ -126,7 +126,7 @@
 }
 
 .fun-navbar {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin-left: auto;
     margin-right: auto;
     margin-top: 240px;
@@ -209,7 +209,7 @@
     align-items: center;
     height: 100%;
     padding-left: 50px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
 }
 
 .menu-bot li{
@@ -241,7 +241,7 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     color: white;
     padding: 20px 50px;
 }

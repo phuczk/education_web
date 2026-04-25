@@ -47,6 +47,37 @@ body {
     line-height: 1.4;
 }
 
+.chat-button-container {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.chat-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 12px 24px;
+    background-color: #4a90e2;
+    color: white;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 700;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.chat-button:hover {
+    background-color: #357ab7;
+}
+
+.chat-note {
+    color: #666;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
 .layout {
     display: flex;
     flex-wrap: wrap;
@@ -94,7 +125,7 @@ iframe {
 
 .lesson-item h4 {
     color: #fff;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
 }
 
 .lesson-item:hover {
@@ -111,8 +142,8 @@ iframe {
     margin-top: 0.5rem;
     line-height: 1.6;
     font-size: 1rem;
-    color: #444;
-    background-color: #fff;
+    color: #ffffff;
+    background-color: #a5911f;
     padding: 1rem;
     border-radius: 30px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);

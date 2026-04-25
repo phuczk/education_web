@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avataaars Generator (HTML/CSS/JS)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <main class="container">
+    <section class="preview-section">
+      <div class="avatar-preview" id="avatarFrame">
+        <img id="avatarImage" alt="Avataaars preview" src="" />
+      </div>
+      <div class="actions">
+        <button id="randomButton" class="button button-primary">Random</button>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="form-group form-legend">
+        <span>Avatar Style</span>
+        <label><input type="radio" name="avatarStyle" value="Circle" checked /> Circle</label>
+        <label><input type="radio" name="avatarStyle" value="Transparent" /> Transparent</label>
+      </div>
+      <div class="tabs" id="tabsContainer"></div>
+      <div class="items-grid" id="itemsContainer"></div>
+    </section>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+
+</html>

@@ -26,7 +26,7 @@
     border: 3px solid #d5c651;
     border-radius: 15px;
     font-size: 18px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin-bottom: 10px;
     outline: none;
     transition: all 0.3s ease;
@@ -53,7 +53,7 @@
     border: 3px solid #d5c651;
     border-radius: 15px;
     font-size: 20px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     background-color: #fdf8e9;
     line-height: 1.5;
     overflow-y: auto;
@@ -113,7 +113,7 @@
     border-radius: 15px;
     padding: 10px 10px;
     font-size: 16px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -176,7 +176,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 14px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -205,7 +205,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 12px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -227,7 +227,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 12px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -249,7 +249,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 12px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -271,7 +271,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 12px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -293,7 +293,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 12px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -315,7 +315,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 12px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -337,7 +337,7 @@
     border-radius: 10px;
     color: #fff7df;
     font-size: 12px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;

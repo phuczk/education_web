@@ -1,0 +1,186 @@
+/* Toàn bộ trang */
+body {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Tiêu đề */
+h2 {
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+#targetWord {
+  color: #3498db;
+  font-weight: 700;
+}
+
+/* Nút ghi âm */
+#recordBtn {
+  background: linear-gradient(135deg, #3498db, #2ecc71);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-size: 1.1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+#recordBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+#recordBtn.recording {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  animation: pulse 1.2s infinite;
+}
+
+/* Hiệu ứng nhấp nháy khi ghi âm */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+  }
+
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(231, 76, 60, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0);
+  }
+}
+
+/* Vùng hiển thị so sánh */
+#compareContainer {
+  margin-top: 30px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  display: inline-block;
+  min-width: 280px;
+}
+
+#targetDisplay,
+#spokenDisplay {
+  margin: 10px 0;
+  font-size: 1.2em;
+  letter-spacing: 0.5px;
+}
+
+#targetDisplay span {
+  color: #2980b9;
+  font-weight: bold;
+}
+
+#spokenDisplay span {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+/* Kết quả */
+#result {
+  margin-top: 25px;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #555;
+}
+
+/* Vòng tròn phần trăm */
+.circle {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin: 40px auto;
+}
+
+.circle svg {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  transform: rotate(-90deg);
+}
+
+.circle circle {
+  fill: none;
+  stroke-width: 12;
+  stroke-linecap: round;
+}
+
+.circle circle:first-child {
+  stroke: #e6e6e6;
+}
+
+#progressCircle {
+  stroke: #2ecc71;
+  stroke-dasharray: 314;
+  stroke-dashoffset: 314;
+  transition: stroke-dashoffset 0.8s ease, stroke 0.3s ease;
+}
+
+.percentage {
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  font-size: 1.6em;
+  font-weight: 700;
+  color: #2ecc71;
+}
+
+/* Hiển thị ký tự đúng/sai */
+.correct {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.incorrect {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.extra {
+  color: #bbb;
+  text-decoration: line-through;
+}
+
+.missing {
+  color: #717171;
+  font-style: italic;
+}
+
+.btnTry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #efc043;
+  color: #fff;
+  padding: 14px 32px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Arial', cursive, sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btnTry:hover {
+  background-color: #eb7400;
+  color: white;
+  transform: scale(1.05);
+}

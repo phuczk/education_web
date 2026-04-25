@@ -6,7 +6,7 @@
     background-color: #ffffff;
     color: #1a1a1a;
     border-radius: 30px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -54,7 +54,7 @@
     border-radius: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin-top: 20px;
 }
 

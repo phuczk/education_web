@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Pets</title>
+    <link rel="stylesheet" href="pet_style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐾 My Pets 🐾</h1>
+            <div class="currency-display">
+                <span class="coin-icon">💰</span>
+                <span id="userCoins" class="coins-amount">0</span>
+                <span class="coins-label">coins</span>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="current">My Pets</button>
+            <button class="tab-btn" data-tab="shop">Pet Shop 🛍️</button>
+        </div>
+
+        <div class="tab-content">
+            <div id="current-tab" class="tab-pane active">
+                <div class="pets-grid" id="currentPetsGrid">
+                    <!-- Current pets will be displayed here -->
+                </div>
+                <div class="empty-state" id="noPetsMessage" style="display: none;">
+                    <p>🐱 You don't have any pets yet!</p>
+                    <p>Visit the shop to adopt your first pet! 🛍️</p>
+                </div>
+            </div>
+
+            <div id="shop-tab" class="tab-pane">
+                <div class="shop-grid" id="shopPetsGrid">
+                    <!-- Shop pets will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="actions">
+            <div id="message" class="message"></div>
+        </div>
+    </div>
+</body>
+<script src="pet_script.js"></script>
+</html>

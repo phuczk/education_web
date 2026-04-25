@@ -13,7 +13,7 @@
     color: #fcf4db;
     border: none;
     cursor: pointer;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
 }
 
 .subject-btn:hover {
@@ -60,14 +60,14 @@
 
 .staff-info h3 {
     margin: 10px 0 5px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     color: #fcf4db;
 }
 
 .staff-info p {
     margin: 5px 0;
     font-size: 14px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     color: #fcf4db;
 }
 
@@ -78,5 +78,5 @@
     border: none;
     background-color: #e1e1e1;
     border-radius: 4px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
 } */
