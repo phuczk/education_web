@@ -123,7 +123,7 @@ fetch(`https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses/${c
                         const roomName = encodeURIComponent(course.title);
                         const roomId = encodeURIComponent(`${courseId}`);
                         chatButtonContainer.innerHTML = `
-                            <a class="chat-button" href="./Chat/index.html?room=${roomId}&roomName=${roomName}">
+                            <a class="chat-button" href="./chat/index.html?room=${roomId}&roomName=${roomName}">
                                 Chat nhóm khóa học
                             </a>
                         `;
