@@ -169,6 +169,136 @@ h1 {
     border-color: #dda0dd;
 }
 
+/* Rarity-based styling for current pets */
+.pet-card.current-pet.rarity-common {
+    border-color: #7aa874;
+    background: linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%);
+    box-shadow: 0 8px 25px rgba(122, 168, 116, 0.3);
+}
+
+.pet-card.current-pet.rarity-uncommon {
+    border-color: #4a90e2;
+    background: linear-gradient(135deg, #e6f2ff 0%, #d9e9ff 100%);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.3);
+}
+
+.pet-card.current-pet.rarity-rare {
+    border-color: #f5576c;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe0e5 100%);
+    box-shadow: 0 8px 25px rgba(245, 87, 108, 0.3);
+}
+
+.pet-card.current-pet.rarity-epic {
+    border-color: #ee5a24;
+    background: linear-gradient(135deg, #fff5f0 0%, #ffe8e0 100%);
+    box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+    animation: epicCardGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes epicCardGlow {
+    from { 
+        box-shadow: 0 8px 25px rgba(238, 90, 36, 0.4);
+        transform: translateY(0);
+    }
+    to { 
+        box-shadow: 0 12px 35px rgba(238, 90, 36, 0.6);
+        transform: translateY(-2px);
+    }
+}
+
+/* Rarity badge positioning and styling */
+.rarity-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.rarity-badge.common {
+    background: linear-gradient(135deg, #95a5a6, #7aa874);
+    border: 2px solid #7aa874;
+}
+
+.rarity-badge.uncommon {
+    background: linear-gradient(135deg, #5bc0de, #4a90e2);
+    border: 2px solid #4a90e2;
+}
+
+.rarity-badge.rare {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    border: 2px solid #f5576c;
+}
+
+.rarity-badge.epic {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    border: 2px solid #ee5a24;
+    animation: epicBadgeGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes epicBadgeGlow {
+    from { 
+        box-shadow: 0 2px 8px rgba(238, 90, 36, 0.4);
+        transform: scale(1);
+    }
+    to { 
+        box-shadow: 0 4px 12px rgba(238, 90, 36, 0.6);
+        transform: scale(1.05);
+    }
+}
+
+/* Enhanced pet info styling based on rarity */
+.pet-card.current-pet.rarity-common .pet-name {
+    color: #7aa874;
+}
+
+.pet-card.current-pet.rarity-uncommon .pet-name {
+    color: #4a90e2;
+}
+
+.pet-card.current-pet.rarity-rare .pet-name {
+    color: #f5576c;
+}
+
+.pet-card.current-pet.rarity-epic .pet-name {
+    color: #ee5a24;
+    text-shadow: 1px 1px 2px rgba(238, 90, 36, 0.3);
+}
+
+.pet-card.current-pet.rarity-epic .pet-level {
+    color: #ee5a24;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(238, 90, 36, 0.2);
+}
+
+/* Enhanced hover effects for different rarities */
+.pet-card.current-pet.rarity-common:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(122, 168, 116, 0.4);
+}
+
+.pet-card.current-pet.rarity-uncommon:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(74, 144, 226, 0.4);
+}
+
+.pet-card.current-pet.rarity-rare:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(245, 87, 108, 0.4);
+}
+
+.pet-card.current-pet.rarity-epic:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 20px 40px rgba(238, 90, 36, 0.5);
+}
+
 .pet-image {
     width: 100%;
     height: 180px;
@@ -372,5 +502,498 @@ h1 {
     
     .currency-display {
         padding: 10px 15px;
+    }
+}
+
+/* Battle System Styles */
+.battle-phase {
+    padding: 20px;
+    background: #fff9f9;
+    border-radius: 25px;
+    border: 3px solid #ffb6c1;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+}
+
+.battle-phase h2 {
+    text-align: center;
+    color: #ff69b4;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+}
+
+/* Pet Selection Phase */
+.battle-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.selection-pet-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 3px solid #ffb6c1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+}
+
+.selection-pet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+}
+
+.selection-pet-card.selected {
+    background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%);
+    border-color: #90ee90;
+    box-shadow: 0 8px 25px rgba(144, 238, 144, 0.4);
+}
+
+.selection-pet-card.selected::before {
+    content: '✅';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+
+.selection-pet-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    object-fit: cover;
+}
+
+.selection-pet-name {
+    font-weight: bold;
+    color: #ff69b4;
+    margin-bottom: 5px;
+}
+
+.selection-pet-stats {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Battle Arena */
+.battle-arena {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.battle-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+    min-height: 300px;
+}
+
+.battle-tile {
+    background: linear-gradient(135deg, #fff9f9 0%, #f0f8ff 100%);
+    border-radius: 25px;
+    border: 3px solid #ffb6c1;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.battle-tile.enemy-tile {
+    grid-column: 2;
+    grid-row: 1;
+    background: linear-gradient(135deg, #fff0f0 0%, #ffe8e8 100%);
+    border-color: #ff69b4;
+}
+
+.battle-tile.user-tile {
+    grid-column: 1;
+    grid-row: 2;
+    background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%);
+    border-color: #90ee90;
+}
+
+.battle-tile.active {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.pet-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+}
+
+.battle-pet-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #ffb6c1;
+    box-shadow: 0 6px 20px rgba(255, 182, 193, 0.4);
+}
+
+.pet-info-overlay {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 10px;
+    border: 2px solid #ffb6c1;
+}
+
+.pet-name {
+    color: #ff69b4;
+    margin-bottom: 8px;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.hp-bar {
+    margin-top: 10px;
+}
+
+.hp-label {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.hp-progress {
+    width: 100%;
+    height: 12px;
+    background: #f0f0f0;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.hp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4caf50, #8bc34a);
+    transition: width 0.3s ease;
+    border-radius: 6px;
+}
+
+/* Battle Controls */
+.battle-controls {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 3px solid #ffb6c1;
+    box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
+}
+
+.battle-message {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff9f9;
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+    font-weight: 600;
+    color: #ff69b4;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Flashcard Question */
+.question-phase {
+    background: linear-gradient(135deg, #f0f8ff 0%, #e8f4f8 100%);
+    border-radius: 15px;
+    padding: 15px;
+    border: 2px solid #87ceeb;
+    margin-bottom: 15px;
+}
+
+.flashcard-question h3 {
+    text-align: center;
+    color: #4169e1;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.question-text {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    padding: 12px;
+    background: white;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+}
+
+.answer-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.answer-option {
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9em;
+}
+
+.answer-option:hover {
+    background: #f0f8ff;
+    border-color: #4169e1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+}
+
+.answer-option.correct {
+    background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%);
+    border-color: #4caf50;
+    color: #2e7d32;
+}
+
+.answer-option.incorrect {
+    background: linear-gradient(135deg, #fff0f0 0%, #ffe8e8 100%);
+    border-color: #f44336;
+    color: #c62828;
+}
+
+/* Battle Status */
+.battle-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #fff9f9;
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+}
+
+.turn-indicator {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff69b4;
+    text-align: center;
+}
+
+.team-status {
+    display: flex;
+    gap: 30px;
+}
+
+.user-team, .enemy-team {
+    text-align: center;
+}
+
+.user-team h4, .enemy-team h4 {
+    color: #ff69b4;
+    margin-bottom: 10px;
+}
+
+.team-pets {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.team-pet-indicator {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.team-pet-indicator.active {
+    background: #4caf50;
+    color: white;
+}
+
+.team-pet-indicator.defeated {
+    background: #f44336;
+    color: white;
+    text-decoration: line-through;
+}
+
+/* Battle Actions */
+.battle-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.battle-btn {
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    border: 2px solid transparent;
+}
+
+.battle-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
+}
+
+.battle-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.attack-btn {
+    background: linear-gradient(45deg, #4caf50, #45a049);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.attack-btn:hover:not(:disabled) {
+    background: linear-gradient(45deg, #45a049, #2e7d32);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.flee-btn {
+    background: linear-gradient(45deg, #ff9800, #f57c00);
+    box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.flee-btn:hover:not(:disabled) {
+    background: linear-gradient(45deg, #f57c00, #e65100);
+    box-shadow: 0 6px 20px rgba(255, 152, 0, 0.4);
+}
+
+/* Battle Results */
+.battle-results {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    border-radius: 25px;
+    border: 3px solid #ffb6c1;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+}
+
+.result-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.result-title.victory {
+    color: #4caf50;
+    text-shadow: 1px 1px 2px rgba(76, 175, 80, 0.3);
+}
+
+.result-title.defeat {
+    color: #f44336;
+    text-shadow: 1px 1px 2px rgba(244, 67, 54, 0.3);
+}
+
+.result-message {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.rewards-section {
+    background: linear-gradient(135deg, #fff9f9 0%, #f0f8ff 100%);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #ffb6c1;
+}
+
+.rewards-section h3 {
+    color: #ff69b4;
+    margin-bottom: 15px;
+}
+
+.rewards-list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.reward-item {
+    background: white;
+    border-radius: 15px;
+    padding: 10px 20px;
+    border: 2px solid #ffb6c1;
+    font-weight: bold;
+    color: #ff69b4;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
+}
+
+/* Responsive Battle Design */
+@media (max-width: 768px) {
+    .battle-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+        min-height: auto;
+    }
+    
+    .battle-tile.enemy-tile,
+    .battle-tile.user-tile {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    
+    .battle-pet-image {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .battle-status {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .team-status {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .answer-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .battle-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .battle-btn {
+        width: 200px;
     }
 }

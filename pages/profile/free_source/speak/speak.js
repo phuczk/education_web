@@ -1,3 +1,8 @@
+// Go back function
+function goBack() {
+    window.location.href = '../free_source.html';
+}
+
 const speakSourceData = [
     {
         id: "1",

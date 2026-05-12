@@ -152,7 +152,64 @@ fetch(`https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses/${c
                 incrementStreak();
                 // Add coins for completing lesson (10 coins per lesson)
                 addCoins(10, `hoàn thành ${lesson.title}`);
+                
+                // Update daily quest progress
+                updateDailyQuestProgress('lesson_complete', 1);
             });
+            
+            // Function to update daily quest progress
+            function updateDailyQuestProgress(questType, amount = 1) {
+                const dailyQuests = [
+                    { id: 'complete_lesson', type: 'lesson_complete' },
+                    { id: 'practice_flashcard', type: 'flashcard_practice' },
+                    { id: 'typing_practice', type: 'typing_wpm' },
+                    { id: 'pet_interaction', type: 'pet_levelup' }
+                ];
+                
+                const quest = dailyQuests.find(q => q.type === questType);
+                if (!quest) return;
+                
+                const savedQuests = JSON.parse(localStorage.getItem('dailyQuests') || '{}');
+                const questData = savedQuests[quest.id] || { progress: 0, claimed: false };
+                
+                if (!questData.claimed) {
+                    questData.progress = Math.min(questData.progress + amount, 10); // Cap at 10 for safety
+                    savedQuests[quest.id] = questData;
+                    localStorage.setItem('dailyQuests', JSON.stringify(savedQuests));
+                    
+                    // Show notification for quest progress
+                    showQuestNotification(`${questType === 'lesson_complete' ? '📚' : '🎯'} Quest progress updated!`);
+                }
+            }
+            
+            function showQuestNotification(message) {
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 80px;
+                    right: 20px;
+                    background: linear-gradient(45deg, #4caf50, #45a049);
+                    color: white;
+                    padding: 12px 18px;
+                    border-radius: 20px;
+                    font-weight: bold;
+                    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+                    z-index: 1000;
+                    animation: slideIn 0.3s ease;
+                `;
+                notification.textContent = message;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.animation = 'slideIn 0.3s ease reverse';
+                    setTimeout(() => {
+                        if (document.body.contains(notification)) {
+                            document.body.removeChild(notification);
+                        }
+                    }, 300);
+                }, 2000);
+            }
 
             lessonsList.appendChild(lessonDiv);
         });

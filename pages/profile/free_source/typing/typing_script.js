@@ -157,6 +157,11 @@ function initTyping() {
     let wpm = Math.round(((charIndex - mistake) / 5) / ((maxTime - timeLeft) / 60));
     wpm = wpm < 0 || !wpm || wpm === Infinity ? 0 : wpm;
     wpmTag.innerHTML = wpm;
+    
+    // Check for typing quest progress (50 WPM achievement)
+    if (wpm >= 50 && timeLeft === 0) {
+        updateTypingQuestProgress(wpm);
+    }
 }
 
 function initTimer(){
@@ -167,5 +172,50 @@ function initTimer(){
     clearInterval(time);
   }
 }
+
+// Function to update typing quest progress
+function updateTypingQuestProgress(wpm) {
+    const savedQuests = JSON.parse(localStorage.getItem('dailyQuests') || '{}');
+    const questData = savedQuests['typing_practice'] || { progress: 0, claimed: false };
+    
+    if (!questData.claimed && wpm >= 50) {
+        questData.progress = Math.max(questData.progress, 50); // Mark as completed
+        savedQuests['typing_practice'] = questData;
+        localStorage.setItem('dailyQuests', JSON.stringify(savedQuests));
+        
+        // Show notification for quest completion
+        showTypingQuestNotification();
+    }
+}
+
+function showTypingQuestNotification() {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #4a90e2, #3a80d2);
+        color: white;
+        padding: 12px 18px;
+        border-radius: 20px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = '⌨️ Typing quest completed! 50+ WPM achieved!';
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideIn 0.3s ease reverse';
+        setTimeout(() => {
+            if (document.body.contains(notification)) {
+                document.body.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
+
 ranDomContent();
 inputFeild.addEventListener("input", initTyping);

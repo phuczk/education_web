@@ -9,6 +9,7 @@
 <body>
     <div class="container">
         <div class="header">
+            <button class="back-btn" onclick="goBack()">← Quay lại</button>
             <h1>🐾 My Pets 🐾</h1>
             <div class="currency-display">
                 <span class="coin-icon">💰</span>
@@ -19,6 +20,7 @@
         
         <div class="tabs">
             <button class="tab-btn active" data-tab="current">My Pets</button>
+            <button class="tab-btn" data-tab="battle">⚔️ Battle</button>
             <button class="tab-btn" data-tab="shop">Pet Shop 🛍️</button>
         </div>
 
@@ -30,6 +32,112 @@
                 <div class="empty-state" id="noPetsMessage" style="display: none;">
                     <p>🐱 You don't have any pets yet!</p>
                     <p>Visit the shop to adopt your first pet! 🛍️</p>
+                </div>
+            </div>
+
+            <div id="battle-tab" class="tab-pane">
+                <!-- Pet Selection Phase -->
+                <div id="petSelectionPhase" class="battle-phase">
+                    <h2>⚔️ Choose Your Battle Team (Max 3 Pets)</h2>
+                    <div class="battle-selection-grid" id="battleSelectionGrid">
+                        <!-- User's pets for selection will be displayed here -->
+                    </div>
+                    <button id="startBattleBtn" class="battle-btn" style="display: none;">Start Battle!</button>
+                </div>
+
+                <!-- Battle Phase -->
+                <div id="battlePhase" class="battle-phase" style="display: none;">
+                    <div class="battle-arena">
+                        <!-- 2x2 Grid Layout -->
+                        <div class="battle-grid">
+                            <!-- Top Right: Enemy Pet -->
+                            <div class="battle-tile enemy-tile">
+                                <div class="pet-container">
+                                    <img id="enemyPetImage" src="" alt="Enemy Pet" class="battle-pet-image">
+                                    <div class="pet-info-overlay">
+                                        <h3 id="enemyPetName" class="pet-name"></h3>
+                                        <div class="hp-bar">
+                                            <div class="hp-label">HP: <span id="enemyCurrentHP">0</span>/<span id="enemyMaxHP">0</span></div>
+                                            <div class="hp-progress">
+                                                <div id="enemyHPFill" class="hp-fill"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Left: User Pet -->
+                            <div class="battle-tile user-tile">
+                                <div class="pet-container">
+                                    <img id="userPetImage" src="" alt="Your Pet" class="battle-pet-image">
+                                    <div class="pet-info-overlay">
+                                        <h3 id="userPetName" class="pet-name"></h3>
+                                        <div class="hp-bar">
+                                            <div class="hp-label">HP: <span id="userCurrentHP">0</span>/<span id="userMaxHP">0</span></div>
+                                            <div class="hp-progress">
+                                                <div id="userHPFill" class="hp-fill"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Battle Controls -->
+                        <div class="battle-controls">
+                            <div id="battleMessage" class="battle-message"></div>
+                            
+                            <!-- Flashcard Question -->
+                            <div id="questionPhase" class="question-phase" style="display: none;">
+                                <div class="flashcard-question">
+                                    <h3>🎴 Answer the question to attack!</h3>
+                                    <div id="questionText" class="question-text"></div>
+                                    <div id="answerOptions" class="answer-options">
+                                        <!-- 4 answer choices will be displayed here -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Battle Status -->
+                            <div class="battle-status">
+                                <div class="turn-indicator">
+                                    <span id="currentTurn">Your Turn</span>
+                                </div>
+                                <div class="team-status">
+                                    <div class="user-team">
+                                        <h4>Your Team</h4>
+                                        <div id="userTeamStatus" class="team-pets">
+                                            <!-- User's remaining pets will be shown here -->
+                                        </div>
+                                    </div>
+                                    <div class="enemy-team">
+                                        <h4>Enemy Team</h4>
+                                        <div id="enemyTeamStatus" class="team-pets">
+                                            <!-- Enemy's remaining pets will be shown here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Battle Actions -->
+                            <div class="battle-actions">
+                                <button id="attackBtn" class="battle-btn attack-btn" style="display: none;">⚔️ Attack</button>
+                                <button id="nextPetBtn" class="battle-btn" style="display: none;">Next Pet</button>
+                                <button id="fleeBtn" class="battle-btn flee-btn">🏃 Flee</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Battle Results -->
+                <div id="battleResults" class="battle-results" style="display: none;">
+                    <h2 id="resultTitle" class="result-title"></h2>
+                    <div id="resultMessage" class="result-message"></div>
+                    <div id="rewardsSection" class="rewards-section" style="display: none;">
+                        <h3>🏆 Rewards</h3>
+                        <div id="rewardsList" class="rewards-list"></div>
+                    </div>
+                    <button id="continueBtn" class="battle-btn">Continue</button>
                 </div>
             </div>
 

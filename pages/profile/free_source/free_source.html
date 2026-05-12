@@ -9,8 +9,17 @@
 </head>
 <body class="body">
     <div class="container">
+        <div class="free-source-header">
+            <button class="back-btn" onclick="goBack()">Quay lại</button>
+        </div>
         <h2 style="text-align: center; font-family: 'Comic Sans MS', cursive, sans-serif;">Khóa học miễn phí</h2>
         <div class="free-source-options">
+            <div class="free-source-card flashcard">
+                <img src="https://img.freepik.com/free-vector/flashcards-concept-illustration_23-2149153910.jpg?semt=ais_hybrid&w=740&q=80" alt="Flash cards">
+                <h3>Flash cards</h3>
+                <p class="description">Học từ vựng với flash cards. Luyện tập ghi nhớ và phản xạ nhanh với các từ tiếng Anh.</p>
+                <button class="toFlashcard btn-source">Bắt đầu học</button>
+            </div>
             <div class="free-source-card speak">
                 <img src="https://img.freepik.com/free-vector/you-speak-english-lettering-background_23-2147867240.jpg?semt=ais_hybrid&w=740&q=80" alt="Học nói">
                 <h3>Test phát âm</h3>
@@ -33,5 +42,11 @@
     </div>
 
     <script src="free_source_script.js"></script>
+    <script>
+        // Fallback goBack function in case script.js doesn't load properly
+        function goBack() {
+            window.location.href = '../../profile/profile.html';
+        }
+    </script>
 </body>
 </html>
