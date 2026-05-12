@@ -45,23 +45,16 @@ const speakSourceData = [
                 id: 1,
                 title: "Video 1",
                 videos: [
-                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video1.mp4" }
+                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit2/unit2_video1_nonvip.mp4" }
                 ]
             },
             {
                 id: 2,
                 title: "Video 2",
                 videos: [
-                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video2.mp4" }
+                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit2/unit2_video2_nonvip.mp4" }
                 ]
             },
-            {
-                id: 3,
-                title: "Video 3",
-                videos: [
-                    { id: 3, title: "Video 3", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video3.mp4" }
-                ]
-            }
         ]
     },
     {
@@ -75,23 +68,16 @@ const speakSourceData = [
                 id: 1,
                 title: "Video 1",
                 videos: [
-                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video1.mp4" }
+                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit3/unit3_video1_nonvip.mp4" }
                 ]
             },
             {
                 id: 2,
                 title: "Video 2",
                 videos: [
-                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video2.mp4" }
+                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit3/unit3_video2_nonvip.mp4" }
                 ]
             },
-            {
-                id: 3,
-                title: "Video 3",
-                videos: [
-                    { id: 3, title: "Video 3", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video3.mp4" }
-                ]
-            }
         ]
     },
     {
@@ -105,23 +91,16 @@ const speakSourceData = [
                 id: 1,
                 title: "Video 1",
                 videos: [
-                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video1.mp4" }
+                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit4/unit4_video1_nonvip.mp4" }
                 ]
             },
             {
                 id: 2,
                 title: "Video 2",
                 videos: [
-                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video2.mp4" }
+                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit4/unit4_video2_nonvip.mp4" }
                 ]
             },
-            {
-                id: 3,
-                title: "Video 3",
-                videos: [
-                    { id: 3, title: "Video 3", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video3.mp4" }
-                ]
-            }
         ]
     },
     {
@@ -135,21 +114,21 @@ const speakSourceData = [
                 id: 1,
                 title: "Video 1",
                 videos: [
-                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video1.mp4" }
+                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit5/unit5_video1_nonvip.mp4" }
                 ]
             },
             {
                 id: 2,
                 title: "Video 2",
                 videos: [
-                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video2.mp4" }
+                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit5/unit5_video2_nonvip.mp4" }
                 ]
             },
             {
                 id: 3,
                 title: "Video 3",
                 videos: [
-                    { id: 3, title: "Video 3", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video3.mp4" }
+                    { id: 3, title: "Video 3", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit5/unit5_video3_nonvip.mp4" }
                 ]
             }
         ]
@@ -165,21 +144,21 @@ const speakSourceData = [
                 id: 1,
                 title: "Video 1",
                 videos: [
-                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video1.mp4" }
+                    { id: 1, title: "Video 1", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit6/unit6_video1_nonvip.mp4" }
                 ]
             },
             {
                 id: 2,
                 title: "Video 2",
                 videos: [
-                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video2.mp4" }
+                    { id: 2, title: "Video 2", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit6/unit6_video2_nonvip.mp4" }
                 ]
             },
             {
                 id: 3,
                 title: "Video 3",
                 videos: [
-                    { id: 3, title: "Video 3", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit1/unit1_video3.mp4" }
+                    { id: 3, title: "Video 3", url: "https://appv2.tienganh123.com/data/videos/child_pronun/child_pronun/unit6/unit6_video3_nonvip.mp4" }
                 ]
             }
         ]
