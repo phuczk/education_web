@@ -1051,6 +1051,10 @@ h1 {
     transition: all 0.3s ease;
 }
 
+.feeding-game-container .progress-step {
+    cursor: pointer;
+}
+
 .progress-step.current .step-number {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
