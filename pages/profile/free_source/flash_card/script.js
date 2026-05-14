@@ -8,7 +8,11 @@ const flashcard_item = $(`<div class="card">
 <div class="card-container">
     <div class="card-front">
         <h4 class="card-front-title dynapuff-font">Question</h4>
+        <img class="card-image" src="" alt="Flashcard image">
         <div class="card-front-text dynapuff-font">Sample only 123</div>
+        <button class="audio-btn">
+            <span class="material-symbols-outlined">volume_up</span>
+        </button>
         <!-- Delete button hidden for read-only mode -->
         </div>
     <div class="card-back">
@@ -73,7 +77,9 @@ async function loadFlashcardsFromAPI() {
         FCData = data.map(item => ({
             id: item.id,
             question: item.front,
-            answer: item.back
+            answer: item.back,
+            image: item.image,
+            audio: item.audio
         }));
         // Shuffle the flashcards
         shuffledFCData = shuffleArray(FCData);
@@ -126,6 +132,23 @@ function load_flashcards(animationDirection = 'right') {
     fc_item.find(`.card-front-text`).text(data.question)
     fc_item.find(`.card-back-text`).text(data.answer)
     fc_item[0].dataset.id = data.id
+    
+    // Set image
+    if (data.image) {
+        fc_item.find('.card-image').attr('src', data.image.trim())
+    }
+    
+    // Set audio button
+    const audioBtn = fc_item.find('.audio-btn')
+    if (data.audio) {
+        audioBtn.click(function(e) {
+            e.stopPropagation()
+            const audio = new Audio(data.audio.trim())
+            audio.play()
+        })
+    } else {
+        audioBtn.hide()
+    }
     
     // Add animation class based on direction
     if (animationDirection === 'left') {
