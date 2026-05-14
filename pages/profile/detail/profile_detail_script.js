@@ -217,7 +217,13 @@ fetch(`https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses/${c
         function setLesson(lesson) {
             player.src = convertToEmbedUrl(lesson.youtube);
             lessonDesc.textContent = lesson.description;
-            lessonEx.textContent = lesson.exercise;
+            if (lesson.exercise) {
+                lessonEx.href = lesson.exercise;
+                lessonEx.textContent = lesson.exercise;
+            } else {
+                lessonEx.href = "#";
+                lessonEx.textContent = "Không có bài tập";
+            }
         }
 
         function convertToEmbedUrl(url) {

@@ -136,8 +136,7 @@ iframe {
     background-color: #ef6c00;
 }
 
-#lesson-description,
-#lesson-exercise {
+#lesson-description {
     display: block;
     margin-top: 0.5rem;
     line-height: 1.6;
@@ -147,6 +146,24 @@ iframe {
     padding: 1rem;
     border-radius: 30px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#lesson-exercise {
+    display: block;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    color: #ffffff;
+    background-color: #4a90e2;
+    padding: 1rem;
+    border-radius: 30px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+#lesson-exercise:hover {
+    background-color: #357ab7;
 }
 
 @media (max-width: 768px) {

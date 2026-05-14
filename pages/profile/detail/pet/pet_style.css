@@ -997,3 +997,181 @@ h1 {
         width: 200px;
     }
 }
+
+/* Feeding Game Styles */
+.feeding-game-container {
+    padding: 20px;
+    background: #fff9f9;
+    border-radius: 25px;
+    border: 3px solid #ffb6c1;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+    text-align: center;
+}
+
+.feeding-game-container h2 {
+    color: #ff69b4;
+    margin-bottom: 10px;
+    font-size: 2em;
+    text-shadow: 1px 1px 2px rgba(255, 105, 180, 0.3);
+}
+
+.feeding-game-container p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+/* Feeding Progress */
+.feeding-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+}
+
+.progress-step.current .step-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.progress-step.completed .step-number {
+    background: linear-gradient(135deg, #4caf50 0%, #8bc34a 100%);
+    color: white;
+}
+
+.step-label {
+    font-size: 0.85em;
+    color: #666;
+    font-weight: 600;
+}
+
+.progress-line {
+    width: 50px;
+    height: 3px;
+    background: #e0e0e0;
+    border-radius: 2px;
+}
+
+.feeding-game-phase {
+    margin-bottom: 30px;
+}
+
+.feeding-game-phase h3 {
+    color: #ff69b4;
+    margin-bottom: 20px;
+    font-size: 1.4em;
+}
+
+.feeding-pets-grid, .feeding-foods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.feeding-pet-card, .feeding-food-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 3px solid #ffb6c1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.feeding-pet-card:hover, .feeding-food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+}
+
+.feeding-pet-card.selected {
+    background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%);
+    border-color: #90ee90;
+    box-shadow: 0 8px 25px rgba(144, 238, 144, 0.4);
+}
+
+.feeding-pet-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 3px solid #ffb6c1;
+}
+
+.feeding-food-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.feeding-pet-name, .feeding-food-name {
+    font-weight: bold;
+    color: #ff69b4;
+    font-size: 1.1em;
+    margin-bottom: 8px;
+}
+
+.feeding-pet-hint {
+    color: #666;
+    font-size: 0.95em;
+    font-style: italic;
+}
+
+.feeding-food-card.correct {
+    background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%);
+    border-color: #4caf50;
+}
+
+.feeding-food-card.incorrect {
+    background: linear-gradient(135deg, #fff0f0 0%, #ffe8e8 100%);
+    border-color: #f44336;
+}
+
+.feeding-results {
+    padding: 30px;
+    background: white;
+    border-radius: 25px;
+    border: 3px solid #ffb6c1;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+}
+
+.feeding-results h3 {
+    color: #ff69b4;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+}
+
+.feeding-results p {
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+}

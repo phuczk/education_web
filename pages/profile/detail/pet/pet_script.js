@@ -1059,9 +1059,222 @@ function goBack() {
     window.location.href = '../../profile.html';
 }
 
+// Feeding Game Variables
+let feedingGameState = {
+    currentPetIndex: 0,
+    flashcards: [],
+    currentFlashcards: [],
+    completedPets: []
+};
+
+// Initialize feeding game system
+function initializeFeedingGameSystem() {
+    const feedingTab = document.querySelector('[data-tab="feeding"]');
+    if (feedingTab) {
+        feedingTab.addEventListener('click', () => {
+            loadFeedingGame();
+        });
+    }
+
+    const playAgainBtn = document.getElementById('playAgainBtn');
+    if (playAgainBtn) {
+        playAgainBtn.addEventListener('click', loadFeedingGame);
+    }
+}
+
+// Load feeding game
+async function loadFeedingGame() {
+    try {
+        const response = await fetch(flashcardApi);
+        feedingGameState.flashcards = await response.json();
+        
+        // Reset feeding game state
+        resetFeedingGame();
+        
+        // Render current pet to feed
+        renderCurrentFeedingPet();
+        
+    } catch (error) {
+        console.error('Error loading flashcards for feeding game:', error);
+        showMessage('Failed to load feeding game', 'error');
+    }
+}
+
+// Reset feeding game
+function resetFeedingGame() {
+    feedingGameState.currentPetIndex = 0;
+    feedingGameState.completedPets = [];
+    document.getElementById('foodSelectionPhase').style.display = 'none';
+    document.getElementById('feedingResults').style.display = 'none';
+    document.getElementById('feedingPetsGrid').style.display = 'grid';
+    updateFeedingProgress();
+}
+
+// Update feeding progress display
+function updateFeedingProgress() {
+    const progressSteps = document.querySelectorAll('#feedingProgress .progress-step');
+    progressSteps.forEach((step, index) => {
+        step.classList.remove('completed', 'current');
+        if (index < feedingGameState.completedPets.length) {
+            step.classList.add('completed');
+        } else if (index === feedingGameState.currentPetIndex) {
+            step.classList.add('current');
+        }
+    });
+}
+
+// Render current pet to feed
+function renderCurrentFeedingPet() {
+    const feedingPetsGrid = document.getElementById('feedingPetsGrid');
+    const feedingStepTitle = document.getElementById('feedingStepTitle');
+    feedingPetsGrid.innerHTML = '';
+    
+    // Get first 4 pets from shop
+    const pets = shopPets.slice(0, 4);
+    
+    // Get first 4 flashcards for pet-food pairs
+    feedingGameState.currentFlashcards = feedingGameState.flashcards.slice(0, 4);
+    
+    // Display only current pet
+    const currentPet = pets[feedingGameState.currentPetIndex];
+    const currentFlashcard = feedingGameState.currentFlashcards[feedingGameState.currentPetIndex];
+    
+    feedingStepTitle.textContent = `Step ${feedingGameState.currentPetIndex + 1}: Feed ${currentPet.name}`;
+    
+    const petCard = document.createElement('div');
+    petCard.className = 'feeding-pet-card selected';
+    petCard.dataset.petIndex = feedingGameState.currentPetIndex;
+    
+    const imageUrl = `../../../../data/image/pets/${currentPet.image}`;
+    
+    petCard.innerHTML = `
+        <img src="${imageUrl}" alt="${currentPet.name}" class="feeding-pet-image" 
+             onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjZmZmIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSI+Tm8gSW1hZ2U8L3RleHQ+PC9zdmc+'">
+        <div class="feeding-pet-name">${currentPet.name}</div>
+        <div class="feeding-pet-hint">${currentFlashcard.back}</div>
+    `;
+    
+    feedingPetsGrid.appendChild(petCard);
+    
+    // Render food options
+    renderFeedingFoods();
+}
+
+// Render feeding foods
+function renderFeedingFoods() {
+    const foodSelectionPhase = document.getElementById('foodSelectionPhase');
+    const feedingFoodsGrid = document.getElementById('feedingFoodsGrid');
+    foodSelectionPhase.style.display = 'block';
+    
+    feedingFoodsGrid.innerHTML = '';
+    
+    // Get all 4 front contents (foods) from current flashcards
+    const foods = feedingGameState.currentFlashcards.map((fc, index) => ({
+        index: index,
+        front: fc.front,
+        image: fc.image
+    }));
+    
+    // Shuffle foods
+    foods.sort(() => Math.random() - 0.5);
+    
+    foods.forEach(food => {
+        const foodCard = document.createElement('div');
+        foodCard.className = 'feeding-food-card';
+        foodCard.dataset.foodIndex = food.index;
+        
+        let foodImageHtml = '';
+        if (food.image) {
+            foodImageHtml = `<img src="https://e7.pngegg.com/pngimages/888/586/png-clipart-drawing-cupcake-kavaii-hello-kitty-chibi-chibi-food-chibi.png" alt="${food.front}" class="feeding-food-image">`;
+        }
+        
+        foodCard.innerHTML = `
+            ${foodImageHtml}
+            <div class="feeding-food-name">${food.front}</div>
+        `;
+        
+        foodCard.addEventListener('click', () => checkFeedingMatch(food.index, foodCard));
+        feedingFoodsGrid.appendChild(foodCard);
+    });
+}
+
+// Check feeding match
+function checkFeedingMatch(foodIndex, foodCard) {
+    const petIndex = feedingGameState.currentPetIndex;
+    
+    // Disable all food cards
+    document.querySelectorAll('.feeding-food-card').forEach(card => {
+        card.style.pointerEvents = 'none';
+    });
+    
+    if (foodIndex === petIndex) {
+        // Correct match
+        foodCard.classList.add('correct');
+        feedingGameState.completedPets.push(petIndex);
+        
+        // Add coins reward
+        userData.coins += 10;
+        updateCoinsDisplay();
+        saveUserData();
+        
+        // Update progress
+        updateFeedingProgress();
+        
+        // Check if all pets are fed
+        if (feedingGameState.completedPets.length === 4) {
+            // All pets fed correctly - WIN
+            setTimeout(() => {
+                showFeedingResults(true);
+            }, 1000);
+        } else {
+            // Move to next pet
+            setTimeout(() => {
+                feedingGameState.currentPetIndex++;
+                document.getElementById('foodSelectionPhase').style.display = 'none';
+                renderCurrentFeedingPet();
+            }, 1500);
+        }
+        
+    } else {
+        // Incorrect match
+        foodCard.classList.add('incorrect');
+        // Highlight correct answer
+        document.querySelectorAll('.feeding-food-card').forEach(card => {
+            if (parseInt(card.dataset.foodIndex) === petIndex) {
+                card.classList.add('correct');
+            }
+        });
+        
+        // Show loss
+        setTimeout(() => {
+            showFeedingResults(false);
+        }, 1500);
+    }
+}
+
+// Show feeding game results
+function showFeedingResults(isWin) {
+    const feedingResults = document.getElementById('feedingResults');
+    const feedingResultTitle = document.getElementById('feedingResultTitle');
+    const feedingResultMessage = document.getElementById('feedingResultMessage');
+    document.getElementById('foodSelectionPhase').style.display = 'none';
+    document.getElementById('feedingPetsGrid').style.display = 'none';
+    
+    if (isWin) {
+        feedingResultTitle.textContent = '🎉 You Win!';
+        feedingResultMessage.textContent = 'Great job! All pets are happy and full!';
+    } else {
+        feedingResultTitle.textContent = '😢 Game Over';
+        feedingResultMessage.textContent = 'Oops! You made a mistake. Try again!';
+    }
+    
+    feedingResults.style.display = 'block';
+}
+
 // Add battle system initialization to main setup
 document.addEventListener('DOMContentLoaded', function() {
     setupEventListeners();
     loadUserData();
     initializeBattleSystem(); // Initialize battle system
+    initializeFeedingGameSystem(); // Initialize feeding game system
 });

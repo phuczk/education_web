@@ -21,6 +21,7 @@
         <div class="tabs">
             <button class="tab-btn active" data-tab="current">My Pets</button>
             <button class="tab-btn" data-tab="battle">⚔️ Battle</button>
+            <button class="tab-btn" data-tab="feeding">🍽️ Feeding Game</button>
             <button class="tab-btn" data-tab="shop">Pet Shop 🛍️</button>
         </div>
 
@@ -141,6 +142,56 @@
                 </div>
             </div>
 
+            <div id="feeding-tab" class="tab-pane">
+                <div class="feeding-game-container">
+                    <h2>🍽️ Feeding Game</h2>
+                    <p>Feed all 4 pets correctly to win!</p>
+                    
+                    <!-- Progress Tracker -->
+                    <div class="feeding-progress" id="feedingProgress">
+                        <div class="progress-step">
+                            <span class="step-number">1</span>
+                            <span class="step-label">Pet 1</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step">
+                            <span class="step-number">2</span>
+                            <span class="step-label">Pet 2</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step">
+                            <span class="step-number">3</span>
+                            <span class="step-label">Pet 3</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step">
+                            <span class="step-number">4</span>
+                            <span class="step-label">Pet 4</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feeding-game-phase">
+                        <h3 id="feedingStepTitle">Step 1: Choose a Pet</h3>
+                        <div class="feeding-pets-grid" id="feedingPetsGrid">
+                            <!-- Pets will be displayed here -->
+                        </div>
+                    </div>
+                    
+                    <div class="feeding-game-phase" id="foodSelectionPhase" style="display: none;">
+                        <h3>Step 2: Choose the Correct Food</h3>
+                        <div class="feeding-foods-grid" id="feedingFoodsGrid">
+                            <!-- Foods will be displayed here -->
+                        </div>
+                    </div>
+                    
+                    <div class="feeding-results" id="feedingResults" style="display: none;">
+                        <h3 id="feedingResultTitle"></h3>
+                        <p id="feedingResultMessage"></p>
+                        <button id="playAgainBtn" class="battle-btn">Play Again</button>
+                    </div>
+                </div>
+            </div>
+            
             <div id="shop-tab" class="tab-pane">
                 <div class="shop-grid" id="shopPetsGrid">
                     <!-- Shop pets will be displayed here -->
