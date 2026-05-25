@@ -1,0 +1,67 @@
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fff9f9;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(255, 182, 193, 0.2);
+    border: 3px solid #ffb6c1;
+}
+
+.guide-title {
+    color: #ff69b4;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 40px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-weight: bold;
+}
+
+.guide-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 4px 15px rgba(255, 182, 193, 0.15);
+}
+
+.section-title {
+    color: #de6974;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-content {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.05em;
+}
+
+.section-content ul {
+    padding-left: 25px;
+}
+
+.section-content li {
+    margin-bottom: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    .guide-title {
+        font-size: 1.8em;
+    }
+    
+    .section-title {
+        font-size: 1.2em;
+    }
+}

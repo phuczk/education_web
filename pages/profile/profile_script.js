@@ -277,11 +277,20 @@ document.addEventListener('DOMContentLoaded', () => {
             computeAndSaveRank(user).catch(err => console.error('Rank update error', err));
 
             const sourceIds = user.sourcesId || [];
+            const coursesSection = document.getElementById('courses-section');
+            const chartContainer = document.getElementById('learningProgressChartContainer');
+            const dailyQuestsContainer = document.querySelector('.daily-quests-container');
 
             if (sourceIds.length === 0) {
-                document.getElementById('courses-list').innerHTML = '<p>Bạn chưa đăng ký khóa học nào.</p>';
+                if (coursesSection) coursesSection.style.display = 'none';
+                if (chartContainer) chartContainer.style.display = 'none';
+                if (dailyQuestsContainer) dailyQuestsContainer.style.display = 'none';
                 return;
             }
+
+            if (coursesSection) coursesSection.style.display = 'block';
+            if (chartContainer) chartContainer.style.display = 'block';
+            if (dailyQuestsContainer) dailyQuestsContainer.style.display = 'block';
 
             fetch(sourcesApi)
                 .then(res => res.json())
