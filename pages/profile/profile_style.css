@@ -73,7 +73,7 @@
     border-radius: 14px;
     background: linear-gradient(45deg, #fff0f5, #ffe4e1);
     border: 2px solid #ffb6c1;
-    padding: 10px 14px;
+    padding: 0px 14px;
     cursor: pointer;
     position: relative;
 }
