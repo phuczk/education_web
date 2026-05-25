@@ -92,7 +92,7 @@
     font-weight: bold;
     margin: 15px 15px 10px 15px;
     color: #333;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     cursor: pointer;
     transition: color 0.3s ease;
     padding-top: 10px;
@@ -107,7 +107,7 @@
     color: #666;
     line-height: 1.5;
     margin: 0 15px 15px 15px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

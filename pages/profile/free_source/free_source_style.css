@@ -65,7 +65,7 @@
     font-weight: bold;
     margin: 15px 0 10px 0;
     color: #333;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
 }
 
 .free-source-card .description {
@@ -73,7 +73,7 @@
     color: #666;
     line-height: 1.5;
     margin-bottom: 15px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -91,7 +91,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
 }
 
 .btn-source:hover {

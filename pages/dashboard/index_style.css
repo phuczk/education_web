@@ -166,7 +166,7 @@
 
 .helpTitle,
 .helpContent {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin-bottom: 15px;
 }
 
@@ -220,7 +220,7 @@
 }
 
 .feedbackTitle {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: 400;
     font-size: 26px;
     line-height: 26px;

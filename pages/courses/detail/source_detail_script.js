@@ -3,26 +3,34 @@ const usersApi = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/
 
 const urlParams = new URLSearchParams(window.location.search);
 const sourceId = urlParams.get('id');
+const userId = localStorage.getItem('userId');
 
-fetch(`${sourceApi}/${sourceId}`)
-    .then(res => res.json())
-    .then(data => {
-        renderSourceDetail(data);
+Promise.all([
+    fetch(`${sourceApi}/${sourceId}`).then(res => res.json()),
+    userId ? fetch(`${usersApi}/${userId}`).then(res => res.json()) : Promise.resolve(null)
+])
+    .then(([source, user]) => {
+        renderSourceDetail(source, user);
     })
     .catch(err => {
         console.error("Lỗi khi tải chi tiết:", err);
         document.getElementById('sourceDetail').innerHTML = "<p>Không thể tải dữ liệu chi tiết.</p>";
     });
 
-function renderSourceDetail(source) {
+function renderSourceDetail(source, user) {
     const container = document.getElementById('sourceDetail');
+    const hasPurchased = user && Array.isArray(user.sourcesId) && user.sourcesId.includes(source.id);
+
     container.innerHTML = `
         <h1 class="source-title">${source.title}</h1>
         <img class="source-image" src="${source.thumbnailSources}" alt="${source.title}">
         <p class="source-cost">💰 Giá: $${source.cost}</p>
         <p class="source-category">📚 Danh mục: ${source.category}</p>
         <p class="source-description">📝 Mô tả: ${source.description}</p>
-        <button onclick="buyCourse('${source.id}')" class="buy-button">Mua khóa học</button>
+        ${hasPurchased 
+            ? `<button class="buy-button purchased" disabled>Đã mua</button>` 
+            : `<button onclick="buyCourse('${source.id}')" class="buy-button">Mua khóa học</button>`
+        }
     `;
 }
 

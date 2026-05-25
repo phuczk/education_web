@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="profile_style.css">
     <link rel="stylesheet" href="../../style/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="profile_script.js"></script>
     <script src="emoji/emoji.js"></script>
     <link rel="stylesheet" href="emoji/emoji.css">
@@ -66,22 +67,49 @@
     <div class="container">
         <div class="content">
             <div class="user-info" id="userInfo">
-                <div class="user-streak" id="userStreak"></div>
-                <div class="user-coins" id="userCoinsDisplay">
-                    <span class="coin-icon">💰</span>
-                    <span id="userCoinsAmount">0</span>
-                    <span class="coins-label">coins</span>
+                <div class="user-left">
+                    <div class="user-avatar" id="userAvatar"></div>
+                    <div class="user-meta">
+                        
+                        <div class="user-streak" id="userStreak"></div>
+                    </div>
                 </div>
-                <div class="user-avatar" id="userAvatar"></div>
-                <button class="pet-btn" onclick="goToPets()">
-                    🐾 My Pets
-                </button>
+
+                <div class="user-stats">
+                    <div class="user-coins" id="userCoinsDisplay">
+                        <span class="coin-icon">💰</span>
+                        <span id="userCoinsAmount">0</span>
+                        <span class="coins-label">coins</span>
+                    </div>
+
+                    <div class="user-score" id="userScoreDisplay">
+                        <span class="score-icon">⭐</span>
+                        <span id="userScoreAmount">0</span>
+                        <span class="score-label">points</span>
+                    </div>
+
+                    <div class="user-rank" id="userRank">
+                        <img src="" alt="rank" id="userRankImg">
+                        <div class="rank-title" id="userRankTitle">Rank</div>
+                        <div class="rank-tooltip" id="rankTooltip">
+                            <div class="tooltip-arrow"></div>
+                            <div class="tooltip-content"></div>
+                        </div>
+                    </div>
+
+
+                    <button class="pet-btn" onclick="goToPets()">
+                        🐾 My Pets
+                    </button>
+                </div>
             </div>
 
             <h2 style="font-family: 'Arial', cursive, sans-serif; text-align: center;">Khóa học của bạn</h2>
             <div id="courses-list"></div>
 
-            <h2 style="font-family: 'Arial', cursive, sans-serif; text-align: center; margin-top: 40px;">Nhiệm vụ hàng ngày</h2>
+            <!-- <div id="learningProgressAll"></div> -->
+            <div id="learningProgressChartContainer" class="learning-chart-container"></div>
+
             <div class="daily-quests-container">
                 <div class="quest-header">
                     <span class="quest-title">📋 Daily Quests</span>

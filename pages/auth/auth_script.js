@@ -22,7 +22,9 @@ function registerUser() {
             const newUser = {
                 userName,
                 password,
-                sourcesId
+                sourcesId,
+                streak: 1,
+                lastLoginDate: new Date().toDateString()
             };
 
             return fetch(apiUrl, {
@@ -36,6 +38,9 @@ function registerUser() {
             if (data) {
                 alert('✅ Đăng ký thành công!');
                 console.log('User created:', data);
+                localStorage.setItem('userId', data.id);
+                localStorage.setItem('user', JSON.stringify(data));
+                localStorage.setItem('lastLoginDate', new Date().toDateString());
                 window.location.href = '../../pages/dashboard/index.html';
             }
         })
@@ -62,11 +67,14 @@ function loginUser() {
             );
 
             if (foundUser) {
-                alert('✅ Đăng nhập thành công!');
-                console.log('Logged in user:', foundUser);
-                localStorage.setItem('userId', foundUser.id);
-                localStorage.setItem('user', JSON.stringify(foundUser));
-                window.location.href = '../../pages/dashboard/index.html';
+                updateStreak(foundUser).then(updatedUser => {
+                    alert('✅ Đăng nhập thành công!');
+                    console.log('Logged in user:', updatedUser);
+                    localStorage.setItem('userId', updatedUser.id);
+                    localStorage.setItem('user', JSON.stringify(updatedUser));
+                    localStorage.setItem('lastLoginDate', new Date().toDateString());
+                    window.location.href = '../../pages/dashboard/index.html';
+                });
             } else {
                 alert('❌ Sai tài khoản hoặc mật khẩu');
             }
@@ -75,4 +83,53 @@ function loginUser() {
             console.error('❌ Lỗi khi đăng nhập:', err);
             alert('❌ Có lỗi xảy ra khi đăng nhập.');
         });
+}
+
+async function updateStreak(user) {
+    const today = new Date().toDateString();
+    const lastLogin = user.lastLoginDate || null;
+    let streak = Number(user.streak) || 0;
+
+    if (lastLogin) {
+        const lastLoginDate = new Date(lastLogin);
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+
+        if (lastLoginDate.toDateString() === today) {
+            // Already logged in today, do nothing
+        } else if (lastLoginDate.toDateString() === yesterday.toDateString()) {
+            // Consecutive day, increment streak
+            streak += 1;
+        } else {
+            // Streak broken, reset to 1
+            streak = 1;
+        }
+    } else {
+        // First login, set streak to 1
+        streak = 1;
+    }
+
+    const updatedUser = {
+        ...user,
+        streak: streak,
+        lastLoginDate: today
+    };
+
+    try {
+        const response = await fetch(`${apiUrl}/${user.id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(updatedUser)
+        });
+
+        if (response.ok) {
+            return await response.json();
+        } else {
+            console.error('Failed to update user streak');
+            return updatedUser;
+        }
+    } catch (err) {
+        console.error('Error updating user streak:', err);
+        return updatedUser;
+    }
 }

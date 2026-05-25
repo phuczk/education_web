@@ -4,15 +4,110 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="stylesheet" href="profile_detail_style.css" />
-    <script defer src="profile_detail_script.js"></script>
     <link rel="stylesheet" href="../../../style/style.css">
+
+    <script defer src="profile_detail_script.js"></script>
+
+    <script defer src="https://unpkg.com/face-api.js@0.22.2/dist/face-api.min.js"></script>
+
     <title>Chi tiết khóa học</title>
+
+    <style>
+        .emotion-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            pointer-events: none;
+        }
+
+        #emotion-icon {
+            font-size: 60px;
+            line-height: 1;
+        }
+
+        #result {
+            font-size: 14px;
+            font-weight: 600;
+            margin-top: 4px;
+            text-align: center;
+        }
+
+        #status {
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 2px;
+            text-align: center;
+        }
+
+        .focused {
+            color: #18a558;
+        }
+
+        .not-focused {
+            color: #ff4d4f;
+        }
+
+        .chat-button-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+        }
+
+        .chat-button {
+            width: 64px;
+            height: 64px;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #2563eb;
+            box-shadow:
+                0 8px 24px rgba(0, 0, 0, 0.2);
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.08);
+        }
+
+        .chat-button:active {
+            transform: scale(0.96);
+        }
+
+        .chat-button svg {
+            width: 42px !important;
+            height: 42px !important;
+            display: block;
+
+            fill: white;
+            flex-shrink: 0;
+        }
+    </style>
 </head>
 
 <body class="body">
+
     <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 1rem;">
-        <a href="../../profile/profile.html" class="back-button">Quay lại</a>
+        <a href="../../profile/profile.html" class="back-button">
+            Quay lại
+        </a>
+
         <div class="course-header" id="course-header">
             <h2 id="course-title"></h2>
             <p id="course-description"></p>
@@ -21,16 +116,262 @@
 
     <div class="layout">
         <div class="video-frame">
-            <iframe id="youtube-player" src="" allowfullscreen></iframe>
+            <iframe id="youtube-player" src="" allowfullscreen>
+            </iframe>
         </div>
-        <div class="lessons-list" id="lessons-list"></div>
+
+        <div class="lessons-list" id="lessons-list">
+        </div>
     </div>
 
     <div style="margin-top: 1rem;">
-        <p><strong>Mô tả: </strong><span id="lesson-description"></span></p>
-        <p style="margin-top: 1rem;"><strong>Bài tập: </strong><a id="lesson-exercise" href="#" target="_blank"></a></p>
-        <div id="chat-button-container" class="chat-button-container"></div>
+        <p>
+            <strong>Mô tả: </strong>
+            <span id="lesson-description"></span>
+        </p>
+
+        <p style="margin-top: 1rem;">
+            <strong>Bài tập: </strong>
+
+            <a id="lesson-exercise" href="#" target="_blank">
+            </a>
+        </p>
+
+        <div id="chat-button-container" class="chat-button-container">
+        </div>
     </div>
+
+    <!-- Webcam hidden -->
+    <video id="video" autoplay muted playsinline style="display:none;">
+    </video>
+
+    <!-- Fixed emotion HUD -->
+    <div class="emotion-container">
+        <div id="emotion-icon">🙂</div>
+        <div id="result">Đang tải...</div>
+        <div id="status"></div>
+    </div>
+
+    <script>
+        document.addEventListener(
+            "DOMContentLoaded",
+            async () => {
+
+                const video =
+                    document.getElementById("video");
+
+                const result =
+                    document.getElementById("result");
+
+                const status =
+                    document.getElementById("status");
+
+                const emotionIcon =
+                    document.getElementById("emotion-icon");
+
+                const emotionViMap = {
+                    happy: "Vui vẻ",
+                    sad: "Buồn bã",
+                    angry: "Tức giận",
+                    fearful: "Lo sợ",
+                    disgusted: "Ghê tởm",
+                    surprised: "Ngạc nhiên",
+                    neutral: "Bình thường"
+                };
+
+                const emotionIconMap = {
+                    happy: "😄",
+                    sad: "😢",
+                    angry: "😡",
+                    fearful: "😨",
+                    disgusted: "🤢",
+                    surprised: "😲",
+                    neutral: "🙂"
+                };
+
+                const attentionEmotions = [
+                    "neutral",
+                    "happy"
+                ];
+
+                let notDetectedSeconds = 0;
+
+                // ===== Load model =====
+                try {
+
+                    result.innerText =
+                        "Đang tải mô hình AI...";
+
+                    await Promise.all([
+                        faceapi.nets
+                            .tinyFaceDetector
+                            .loadFromUri(
+                                "https://justadudewhohacks.github.io/face-api.js/models"
+                            ),
+
+                        faceapi.nets
+                            .faceExpressionNet
+                            .loadFromUri(
+                                "https://justadudewhohacks.github.io/face-api.js/models"
+                            )
+                    ]);
+
+                } catch (err) {
+
+                    console.error(err);
+
+                    result.innerText =
+                        "Không thể tải mô hình AI.";
+
+                    return;
+                }
+
+                // ===== Open webcam =====
+                try {
+
+                    result.innerText =
+                        "Đang mở camera...";
+
+                    const stream =
+                        await navigator.mediaDevices.getUserMedia({
+                            video: {
+                                width: 640,
+                                height: 480,
+                                facingMode: "user"
+                            }
+                        });
+
+                    video.srcObject = stream;
+
+                } catch (err) {
+
+                    console.error(err);
+
+                    result.innerText =
+                        "Không thể mở webcam.";
+
+                    return;
+                }
+
+                // ===== Detect emotion =====
+                video.addEventListener(
+                    "play",
+                    () => {
+
+                        setInterval(async () => {
+
+                            const detections =
+                                await faceapi
+                                    .detectAllFaces(
+                                        video,
+                                        new faceapi
+                                            .TinyFaceDetectorOptions()
+                                    )
+                                    .withFaceExpressions();
+
+                            // Không thấy mặt
+                            if (
+                                detections.length === 0
+                            ) {
+
+                                notDetectedSeconds++;
+
+                                if (
+                                    notDetectedSeconds >= 5
+                                ) {
+
+                                    emotionIcon.innerText =
+                                        "❌";
+
+                                    result.innerText =
+                                        "Không nhận diện được khuôn mặt";
+
+                                    status.innerText =
+                                        "Không tập trung";
+
+                                    status.classList.remove(
+                                        "focused"
+                                    );
+
+                                    status.classList.add(
+                                        "not-focused"
+                                    );
+                                }
+
+                                return;
+                            }
+
+                            // Reset timer
+                            notDetectedSeconds = 0;
+
+                            const expressions =
+                                detections[0]
+                                    .expressions;
+
+                            const sorted =
+                                Object.entries(
+                                    expressions
+                                ).sort(
+                                    (a, b) =>
+                                        b[1] - a[1]
+                                );
+
+                            const topEmotion =
+                                sorted[0][0];
+
+                            const vnEmotion =
+                                emotionViMap[
+                                topEmotion
+                                ] || topEmotion;
+
+                            emotionIcon.innerText =
+                                emotionIconMap[
+                                topEmotion
+                                ] || "🙂";
+
+                            result.innerText =
+                                "Cảm xúc: " +
+                                vnEmotion;
+
+                            // Check focus
+                            if (
+                                attentionEmotions.includes(
+                                    topEmotion
+                                )
+                            ) {
+
+                                status.innerText =
+                                    "Đang tập trung";
+
+                                status.classList.remove(
+                                    "not-focused"
+                                );
+
+                                status.classList.add(
+                                    "focused"
+                                );
+
+                            } else {
+
+                                status.innerText =
+                                    "Không tập trung";
+
+                                status.classList.remove(
+                                    "focused"
+                                );
+
+                                status.classList.add(
+                                    "not-focused"
+                                );
+                            }
+
+                        }, 1000);
+                    }
+                );
+            }
+        );
+    </script>
+
 </body>
 
 </html>

@@ -4,23 +4,45 @@ function goBack() {
 }
 
 // Flashcard item element (read-only mode - no delete button)
-const flashcard_item = $(`<div class="card">
-<div class="card-container">
-    <div class="card-front">
-        <h4 class="card-front-title dynapuff-font">Question</h4>
-        <img class="card-image" src="" alt="Flashcard image">
-        <div class="card-front-text dynapuff-font">Sample only 123</div>
-        <button class="audio-btn">
-            <span class="material-symbols-outlined">volume_up</span>
-        </button>
-        <!-- Delete button hidden for read-only mode -->
+const flashcard_item = $(`
+<div class="card">
+    <div class="card-container">
+
+        <div class="card-front">
+            <div class="card-badge">Question</div>
+
+            <img class="card-image card-front-image"
+                src=""
+                alt="Question image">
+
+            <div class="card-front-text dynapuff-font">
+                Sample Question
+            </div>
+
+            <button class="audio-btn">
+                <span class="material-symbols-outlined">
+                    volume_up
+                </span>
+            </button>
         </div>
-    <div class="card-back">
-        <h4 class="card-back-title dynapuff-font">Answer</h4>
-        <div class="card-back-text dynapuff-font">Sample only 123</div>
+
+        <div class="card-back">
+            <div class="card-badge answer-badge">
+                Answer
+            </div>
+
+            <img class="card-image card-back-image"
+                src=""
+                alt="Answer image">
+
+            <div class="card-back-text dynapuff-font">
+                Sample Answer
+            </div>
+        </div>
+
     </div>
 </div>
-</div>`)
+`);
 
 // Flashcard Items Container
 const flashcardContainer = $(`.flashcards`)
@@ -135,8 +157,16 @@ function load_flashcards(animationDirection = 'right') {
     
     // Set image
     if (data.image) {
-        fc_item.find('.card-image').attr('src', data.image.trim())
-    }
+    const imageUrl = data.image.trim();
+
+    fc_item.find('.card-front-image')
+        .attr('src', imageUrl);
+
+    fc_item.find('.card-back-image')
+        .attr('src', imageUrl);
+} else {
+    fc_item.find('.card-image').hide();
+}
     
     // Set audio button
     const audioBtn = fc_item.find('.audio-btn')

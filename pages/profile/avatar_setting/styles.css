@@ -4,7 +4,7 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Arial', cursive, sans-serif;
   background: #f7f5fd;
   color: #2b2a33;
 }
@@ -186,7 +186,7 @@ pre {
 }
 
 code {
-  font-family: Consolas, Menlo, Monaco, 'Courier New', monospace;
+  font-family: 'Arial', cursive, sans-serif;
   font-size: 0.92rem;
   color: #3f2b6c;
 }

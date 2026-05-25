@@ -100,3 +100,21 @@
 .cost-high {
     background-color: #ffa750; /* cam nhạt */
 }
+
+.source-item.purchased {
+    opacity: 0.7;
+    position: relative;
+}
+
+.purchased-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'Arial', cursive, sans-serif;
+    z-index: 10;
+}

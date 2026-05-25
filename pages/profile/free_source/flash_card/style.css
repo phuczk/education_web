@@ -2,13 +2,13 @@
  
 * {
     box-sizing: border-box;
-    font-family: "Ubuntu", serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: 300;
     font-style: normal;
 }
  
 .dynapuff-font {
-    font-family: "DynaPuff", serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings:
@@ -17,7 +17,7 @@
  
 b,
 strong {
-    font-family: "Ubuntu", serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: 700;
     font-style: normal;
 }
@@ -48,7 +48,7 @@ strong {
 }
 
 i {
-    font-family: "Ubuntu", serif;
+    font-family: 'Arial', cursive, sans-serif;
     font-weight: 400;
     font-style: italic;
 }
@@ -66,7 +66,7 @@ body {
  
 body {
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     justify-content: center;
     align-items: center;
     background-color: #ebedee;
@@ -143,7 +143,7 @@ body {
 .flashcards .card .card-back {
     position: absolute;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
@@ -434,8 +434,8 @@ button.btn-form-action:hover, button.btn-form-action:active{
 }
 
 .card-image {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
     margin: 10px auto;
@@ -501,4 +501,157 @@ button.btn-form-action:hover, button.btn-form-action:active{
     .flashcards .card .card-back-text {
         font-size: 14px;
     }
+}
+
+/* ===== CARD SIZE ===== */
+
+.flashcards .card {
+    height: 560px;
+    max-width: 480px;
+}
+
+/* ===== FRONT / BACK ===== */
+
+.flashcards .card .card-front,
+.flashcards .card .card-back {
+    border-radius: 30px;
+    overflow: hidden;
+    padding: 24px;
+
+    box-shadow:
+        0 18px 40px rgba(0,0,0,.18),
+        0 6px 16px rgba(0,0,0,.08);
+
+    transition: transform .4s ease;
+}
+
+/* Question side */
+
+.flashcards .card .card-front {
+    background:
+        linear-gradient(
+            145deg,
+            #667eea,
+            #764ba2
+        );
+    color: white;
+}
+
+/* Answer side */
+
+.flashcards .card .card-back {
+    background:
+        linear-gradient(
+            145deg,
+            #ff9a9e,
+            #fad0c4
+        );
+    color: white;
+    transform: rotateY(180deg);
+}
+
+/* ===== QUESTION / ANSWER TAG ===== */
+
+.card-badge {
+    align-self: center;
+    padding: 10px 24px;
+    border-radius: 999px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    background: rgba(255,255,255,.18);
+    backdrop-filter: blur(10px);
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.15);
+}
+
+.answer-badge {
+    background: rgba(255,255,255,.22);
+}
+
+/* ===== IMAGE ===== */
+
+.card-image {
+    width: 100%;
+    max-width: 340px;
+    height: 260px;
+
+    object-fit: cover;
+
+    margin: 0 auto 24px;
+
+    border-radius: 26px;
+
+    display: block;
+
+    border: 5px solid rgba(255,255,255,.18);
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,.22);
+
+    transition: transform .3s ease;
+}
+
+.card:hover .card-image {
+    transform: scale(1.03);
+}
+
+/* ===== TEXT ===== */
+
+.flashcards .card .card-front-text,
+.flashcards .card .card-back-text {
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.45;
+
+    padding: 0 12px;
+}
+
+/* ===== AUDIO BUTTON ===== */
+
+.audio-btn {
+    width: 72px;
+    height: 72px;
+
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+
+    margin: 18px auto 0;
+
+    background: rgba(255,255,255,.18);
+
+    backdrop-filter: blur(16px);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.2);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: .25s ease;
+}
+
+.audio-btn:hover {
+    transform: scale(1.12);
+    background: rgba(255,255,255,.3);
+}
+
+.audio-btn .material-symbols-outlined {
+    font-size: 36px;
+    color: white;
 }

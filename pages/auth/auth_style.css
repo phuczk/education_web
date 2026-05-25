@@ -5,11 +5,11 @@
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
 }
 
 .login-title {
-    font-family: 'Pacifico', cursive;
+    font-family: 'Arial', cursive, sans-serif;
     /* Giống như trong ảnh */
     font-size: 28px;
     margin-bottom: 20px;

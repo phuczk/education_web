@@ -37,7 +37,7 @@
     color: #666;
     line-height: 1.6;
     text-align: center;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin: 20px 0;
 }
 
@@ -49,7 +49,7 @@
     font-size: 24px;
     font-weight: bold;
     color: #333;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -81,7 +81,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin: 0;
 }
 
@@ -154,7 +154,7 @@
     font-weight: bold;
     color: #333;
     text-align: center;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     margin: 0 0 8px 0;
 }
 

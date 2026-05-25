@@ -1,14 +1,20 @@
 const apiUrl = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/sourses';
+const usersApi = 'https://681eeb44c1c291fa66357959.mockapi.io/api/v2/greenclass/users';
 let allSources = [];
+let currentUser = null;
+const userId = localStorage.getItem('userId');
 
 // Lấy dữ liệu từ API
-fetch(apiUrl)
-    .then(res => res.json())
-    .then(data => {
-        allSources = data;
-        const categories = [...new Set(data.map(item => item.category))];
+Promise.all([
+    fetch(apiUrl).then(res => res.json()),
+    userId ? fetch(`${usersApi}/${userId}`).then(res => res.json()) : Promise.resolve(null)
+])
+    .then(([sources, user]) => {
+        allSources = sources.filter(item => item.active === true);
+        currentUser = user;
+        const categories = [...new Set(allSources.map(item => item.category))];
         renderCategories(categories);
-        renderSources(data); // Hiển thị tất cả lúc đầu
+        renderSources(allSources); // Hiển thị chỉ sources active
     });
 
 // Render các nút category
@@ -66,8 +72,12 @@ function renderSources(sources) {
             costClass = 'cost-high';
         }
 
-        li.className = `source-item ${costClass}`;
+        // Check if user has purchased this course
+        const hasPurchased = currentUser && Array.isArray(currentUser.sourcesId) && currentUser.sourcesId.includes(source.id);
+
+        li.className = `source-item ${costClass} ${hasPurchased ? 'purchased' : ''}`;
         li.innerHTML = `
+            ${hasPurchased ? '<div class="purchased-badge">Đã mua</div>' : ''}
             <img src="${source.thumbnailSources}" alt="${source.title}">
             <div class="source-title">${source.title}</div>
             <div class="source-cost">Cost: $${source.cost}</div>

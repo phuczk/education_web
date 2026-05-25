@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Comic Sans MS', 'Arial', sans-serif;
+    font-family: 'Arial', cursive, sans-serif;
     background: #ffffff;
     min-height: 100vh;
     padding: 20px;
@@ -28,6 +28,26 @@ body {
     margin-bottom: 30px;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #ff69b4, #ff1493);
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    font-family: 'Arial', cursive, sans-serif;
+}
+
+.back-btn:hover {
+    background: linear-gradient(45deg, #ff1493, #c71585);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 20, 147, 0.4);
 }
 
 h1 {

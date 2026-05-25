@@ -63,3 +63,15 @@
     color: #90c67c;
     border: 2px solid #90c67c;
 }
+
+.buy-button.purchased {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.buy-button.purchased:hover {
+    background-color: #ccc;
+    color: #666;
+    border: none;
+}

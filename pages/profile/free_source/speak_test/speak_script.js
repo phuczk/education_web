@@ -19,20 +19,37 @@ async function fetchNewWord() {
     const data = await response.json();
 
     if (data && data.length > 0) {
-      const randomIndex = Math.floor(Math.random() * data.length);
-      const selectedData = data[randomIndex];
 
-      currentTargetWord = selectedData.word;
-      targetDisplay.textContent = currentTargetWord;
+      const randomIndex =
+        Math.floor(Math.random() * data.length);
+
+      const selectedData =
+        data[randomIndex];
+
+      // dùng front thay vì word
+      currentTargetWord =
+        selectedData.front || "";
+
+      targetDisplay.textContent =
+        currentTargetWord;
 
       output.textContent = "...";
       result.textContent = "Kết quả:";
       result.style.color = "black";
+
       updateProgressCircle(0);
     }
+
   } catch (error) {
-    console.error("Lỗi khi lấy dữ liệu:", error);
-    targetDisplay.textContent = "Lỗi tải từ!";
+
+    console.error(
+      "Lỗi khi lấy dữ liệu:",
+      error
+    );
+
+    targetDisplay.textContent =
+      "Lỗi tải từ!";
+
   } finally {
     nextBtn.disabled = false;
   }

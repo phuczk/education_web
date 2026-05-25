@@ -8,15 +8,34 @@ async function loadWords() {
     try {
         const response = await fetch(API_URL);
         const data = await response.json();
-        wordsFromAPI = data.map(item => item.word);
+
+        // lấy từ từ field front thay vì word
+        wordsFromAPI = data
+            .map(item => item.front?.trim())
+            .filter(Boolean);
+
         wordUsage = {};
-        wordsFromAPI.forEach(word => wordUsage[word] = 0);
+
+        wordsFromAPI.forEach(word => {
+            wordUsage[word] = 0;
+        });
+
         ranDomContent();
+
     } catch (error) {
         console.error("Lỗi API:", error);
-        wordsFromAPI = ["Lỗi kết nối", "Vui lòng kiểm tra"];
+
+        wordsFromAPI = [
+            "Connection error",
+            "Please try again"
+        ];
+
         wordUsage = {};
-        wordsFromAPI.forEach(word => wordUsage[word] = 0);
+
+        wordsFromAPI.forEach(word => {
+            wordUsage[word] = 0;
+        });
+
         ranDomContent();
     }
 }
